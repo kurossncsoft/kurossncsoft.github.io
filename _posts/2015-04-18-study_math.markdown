@@ -3,7 +3,7 @@ layout: post
 title:  "수학 기호에 대해 알아보자"
 date:   2015-04-18 08:43:59
 categories: Study
-tags: [Study]
+author : DANBI
 ---
 
 This is just a dummy post. Lorem ipsum and all the rest.

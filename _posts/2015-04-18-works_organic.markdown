@@ -3,7 +3,7 @@ layout: post
 title:  "진성 유저 분류"
 date:   2015-04-18 08:43:59
 categories: Works
-tags: [Works]
+author : DANBI
 ---
 
 This is just a dummy post. Lorem ipsum and all the rest.
