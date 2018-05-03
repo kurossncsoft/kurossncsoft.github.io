@@ -3,7 +3,7 @@ layout: post
 title:  "채용 공고"
 date:   2015-04-18 08:43:59
 categories: ETC
-tags: ETC
+tags: [ETC]
 ---
 
 This is just a dummy post. Lorem ipsum and all the rest.
