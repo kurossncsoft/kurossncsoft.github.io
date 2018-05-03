@@ -34,11 +34,9 @@ highlightjs_theme: "monokai-sublime"
 jekyll-archives:
   enabled:
     - categories
-    - tags
   layout: 'archive'
   permalinks:
     category: '/category/:name/'
-    tag: '/tag/:name/'
 
 # Disqus comments
 # disqus_shortname: bencentra
