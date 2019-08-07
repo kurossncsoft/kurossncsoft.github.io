@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "모바일 마케팅 분석<br> 
-	무작정 따라하기 #11"
+title:  "모바일 마케팅 분석 무작정 따라하기 #1"
 date:   2019-08-06 18:00:00
 categories: Works
 author : DANBI
