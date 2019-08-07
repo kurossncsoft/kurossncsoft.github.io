@@ -39,10 +39,10 @@ jekyll-archives:
     category: '/category/:name/'
 
 # Disqus comments
-# disqus_shortname: bencentra
+disqus_shortname: danbi
 
 # Google analytics
-# ga_tracking_id: "UA-XXXX-1"
+ga_tracking_id: "UA-122517055-1"
 
 # Category descriptions (for archive pages)
 descriptions:
@@ -50,13 +50,13 @@ descriptions:
     desc: "경진대회 관련 포스트"
 
   - cat: Works
-    desc: "분석 업무 관련 자료"
+    desc: "업무 관련 자료"
 
   - cat: ETC
-    desc: "그 외 기타 자료"
+    desc: "기타 자료"
 
   - cat: Study
-    desc: "연구 자료 및 공유 내용"    
+    desc: "스터디 및 데이터 분석 이론 관련 자료"    
 # Social icons and sharing options
 #
 # Social settings are used in two places:
@@ -76,9 +76,14 @@ social:
 
   - name: GitHub
     icon: github
-    username: DANBI
-    url: https://github.com/danbi-ncsoft.github.io
-    desc: Fork me on GitHub
+    url: https://github.com/danbi-ncsoft
+    desc: Go to GitHub
+    share: false
+    
+  - name: RSS
+    icon: rss
+    url: https://danbi-ncsoft.github.io/feed.xml
+    desc: Subscribe via RSS
     share: false
 
 
@@ -86,12 +91,12 @@ social:
 # These are for automatically generating sharing metadata for FB and Twitter
 # OS Protocol is for sharing the source of your site, if you're interested. For more, see osprotocol.com
 protocols:
-    fb_image: "/assets/logo.png"
-    fb_image_width: 612
-    fb_image_height: 605
-    fb_image_type: "image/png"
+#    fb_image: "/assets/danbi2.jpg"
+#    fb_image_width: 612
+#    fb_image_height: 605
+#    fb_image_type: "image/jpg"
 
-    twitter_image: "/assets/logo.png"
+#    twitter_image: "/assets/danbi2.jpg"
 
     os_repo: "https://github.com/bencentra/centrarium.com"
     os_rcs_type: "git"
