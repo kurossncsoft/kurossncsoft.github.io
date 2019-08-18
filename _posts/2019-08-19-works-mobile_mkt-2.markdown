@@ -36,14 +36,14 @@ ADID와 매칭된 UID 정보를 활용하면, 이전 편에서 소개했던 SDK 
 이때 주의할 점도 있었습니다. 모바일 환경에서는 네트워크 상황이 불안정하여 로그가 유실되는 경우가 종종 발생합니다. 이로 인해 아무리 정상적인 상황이더라도 ADID 와 UID 가 완벽히 매칭되는 경우는 매우 드뭅니다. 따라서 이런 오차를 고려해서 여러 광고 매체별 매칭률을 비교해 보고 일반적인 경우보다 비정상적으로 수치가 낮은 광고 매체를 파악하였습니다. 특히 ‘오가닉 유저 (organic user, 광고 매체를 통하지 않고 직접 유입된 유저)’ 집단의 매칭률과 비교해 보면 좀 더 어뷰징 의심 매체를 명확히 추정할 수 있었습니다. 
 
 <p align="center">
-<img src="/assets/works/mobile_mkt/matching_rate.png" style="width:8in" />
+<img src="/assets/works/mobile_mkt/matching_rate.png" style="width:7in" />
 [그림3] 매체별 ADID-UID 매칭률
 </p>
 
 더 나아가 비정상적으로 많은 UID 와 매칭되는 ADID 나 매칭률이 낮은 디바이스 모델 목록을 추출하여 유입 경로를 추적하는 등 어뷰징과 관련된 다양한 지표를 추출해 볼 수 있었습니다.
 
 <p align="center">
-<img src="/assets/works/mobile_mkt/abusing_adid.PNG" style="width:6in" />
+<img src="/assets/works/mobile_mkt/abusing_adid.PNG" style="width:5in" />
 [그림4] 이상 ADID 유입 경로 추적
 </p>
 
@@ -68,8 +68,7 @@ ADID와 매칭된 UID 정보를 활용하면, 이전 편에서 소개했던 SDK 
 
 <p align="center">
 <img src="/assets/works/mobile_mkt/radar.png" style="width:8in" />
-[그림6] 레이더 면적이 넓은 매체1이 매체2에 비해 전반적인 수치가 좋습니다. 매체3과 매체4의 경우는 정량적인 비교가 다소 어렵습니다.
-
+[그림6] 레이더 면적이 넓은 매체1이 매체2에 비해 전반적인 수치가 좋은 것을 알 수 있습니다. 매체3과 매체4의 경우는 정량적인 비교가 다소 어렵습니다.
 </p>
 
 이런 레이더 차트는 여러 지표들을 한눈에 보기에는 좋지만, 여전히 정량적인 비교는 어렵습니다. 그래서 여기서 한발 더 나아가 여러 지표를 조합한 단일 지수를 개발하게 되었습니다. 이를 위해 저희가 참고한 것은 경제 분야에서 사용하는 ‘금융 상황 지수 (Financial Conditions Index)’ 입니다. ‘금융 상황 지수’ 란 복잡한 경제/금융 상황을 파악하기 위해 금리, 실업률, GDP, 주가지수, 환율 등등 다양한 지표를 종합한 단일 지수를 말합니다. 사용 목적은 다르지만, 다양한 상태를 표현하는 지표들을 종합하여 하나의 지수로 만든다는 점에서는 비슷하죠. 
@@ -88,8 +87,9 @@ $$
 이렇게 만들어진 광고 종합 지수를 이용해서 각 매체의 광고 성과를 하나의 수치로 비교하는 한편, 매월 측정된 지수들의 추세를 모니터링함으로써 특정 매체 혹은 전체 매체의 평균적인 광고 성과가 시간이 지남에 따라 어떻게 바뀌는지도 측정할 수 있게 되었습니다. 
 
 <p align="center">
-<img src="/assets/works/mobile_mkt/pca.PNG" style="width:8in" />
-[그림7] 광고 종합 지수를 활용하여 매체별 비교 및 월별 추세 변화를 모니터링 할 수 있습니다.</p>
+<img src="/aseets/works/mobile_mkt/pca.PNG" style="width:8in" />
+[그림7] 광고 종합 지수를 활용하여 매체별 비교 및 월별 추세 변화를 모니터링 할 수 있습니다.
+</p>
 
 ## 마치며
 
