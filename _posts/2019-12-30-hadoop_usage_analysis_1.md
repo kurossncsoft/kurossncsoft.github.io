@@ -4,7 +4,7 @@ title: "하둡 시스템 개선을 위한 데이터 분석 #1"
 date: 2019-12-30 18:00:00
 categories: Study
 author : DANBI
-cover: "/assest/bulb.jpg"
+cover: "/assests/bulb.jpg"
 ---
 
 ​                                                     **데이터 분석을 통해 하둡 시스템 개선하기**
