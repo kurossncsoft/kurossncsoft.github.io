@@ -4,7 +4,7 @@ title: "하둡 시스템 개선을 위한 데이터 분석 #2"
 date: 2019-12-30 18:00:00
 categories: Study
 author : DANBI
-cover: "/assets/bulbs.jpg"
+cover: "/assets/bulbs.png"
 ---
 
 앞선 포스팅(1편 페이지)에서 데이터 분석을 통한 하둡 시스템 개선 프로젝트의목적과 그 첫번째 주제인 capacity scheduler 최적화를 위한 큐별 자원 할당 비율 을 최적화하는 분석을 살펴보았습니다. 
@@ -35,14 +35,14 @@ cover: "/assets/bulbs.jpg"
 <그림 2>을 보면 대부분의 테이블 쌍이 낮은 값을 갖지만 일부 테이블 쌍은 0.8 이상의 높은 값을 갖는 것을 알 수 있습니다. 다시 말해 이런 테이블 쌍은 전체 쿼리 중 80% 이상에서 같이 조회된 것이므로 하나의 테이블로 병합하는 것이 더 효율적일 수 있는 것이죠. 
 
 <p align="center">
-<img src="/assets/works/hadoop_usage_analysis\2편_그림2.jpg" style="width:8in" />
+<img src="/assets/works/hadoop_usage_analysis\2편_그림2.png" style="width:8in" />
 <그림 2> 분석 대상 테이블 쌍의 공통사용비율 분포
 </p>
 
 그런데 병합 대상이 꼭 두 개의 쌍으로만 이뤄질 필요는 없을 것입니다. 3개 혹은 그 이상의 테이블들이 항상 같이 사용된다면 이들 역시 하나의 테이블로 묶는 것이 좋겠죠. 그래서 이런 경우도 모두 고려하기 위해 저희는 각 테이블을 노드로 하고 이 공통 사용 비율을 가중치 엣지로 갖는 네트워크 그래프를 만든 후 노드들이 서로 긴밀하게 연결되는 ‘클리크 (clique)’를 추출하는 방법을 사용했습니다 (네트워크 분석 기법에 대한 자세한 내용은 ‘[네트워크 분석기법을 활용한 게임 데이터 분석](https://danbi-ncsoft.github.io/works/2018/11/12/network_analysis-1.html)’을 참고하세요). <그림 3>은 이렇게 해서 생성한 테이블 간의 관계 네트워크를 시각화한 자료입니다.
 
 <p align="center">
-<img src="/assets/works/hadoop_usage_analysis\2편_그림3.jpg" style="width:8in" />
+<img src="/assets/works/hadoop_usage_analysis\2편_그림3.png" style="width:8in" />
 <그림 3> 테이블 공통 사용 비율 네트워크(테이블 = 붉은 점, 회색 연결선 = 공통 사용 비율, 눈에 띄는 테이블 공용 클러스터 파선 동그라미 표시)
 </p>
 
@@ -70,7 +70,7 @@ cover: "/assets/bulbs.jpg"
 </p>
 
  <p align="center">
-<img src="/assets/works/hadoop_usage_analysis\표1.PNG" style="width:8in" />
+<img src="/assets/works/hadoop_usage_analysis\표2.PNG" style="width:8in" />
 <표 2> Duration의 전후 기간 비교 결과(유의미한 증가 = 붉은 배경, 감소 = 파란 배경, 차이 없음 = 흰 배경, 전후 기간 모수 각 10개 미만 = 회색 배경)
 </p>
 
@@ -85,7 +85,7 @@ Queue A는 전반적으로 자원 할당량이 증가했는데, 오전과 오후
 두번째 분석이었던 테이블 구조 변경 시 기대 효과에 대한 검증은 실제 도출된 3개의 테이블 그룹에 대한 실제 사용자들의 쿼리를 이용해서 1) 원래 쿼리를 그대로 실행한 경우와 2) 병합 테이블이 제공될 경우 수정된 쿼리를 사용하는 경우에 대해서 다양한 시간대와 요일에서 여러 차례 반복 실행해 본 후 duration의 차이를 분석했습니다.
 
 <p align="center">
-<img src="/assets/works/hadoop_usage_analysis\표1.PNG" style="width:8in" />
+<img src="/assets/works/hadoop_usage_analysis\2편_그림4.PNG" style="width:8in" />
 <그림 4> 세 가지 테이블 그룹의 1) 원래 쿼리와 2) 수정된 쿼리의 duration 분포
 </p>
 

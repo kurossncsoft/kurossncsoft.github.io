@@ -4,7 +4,7 @@ title: "하둡 시스템 개선을 위한 데이터 분석 #1"
 date: 2019-12-30 18:00:00
 categories: Study
 author : DANBI
-cover: "/assets/bulbs.jpg"
+cover: "/assets/bulbs.png"
 ---
 
 ​                                                     **데이터 분석을 통해 하둡 시스템 개선하기**
@@ -94,7 +94,7 @@ Capacity scheduler의 동작 방식은 위에서 설명한 은행 창구의 업�
 첫째, <그림2>를 보면 알 수 있듯이, 각 큐 별, 시간대 별 시스템 사용량의 변화 패턴은 오전 9시를 기준으로 하고 있는 현재의 Night/Day 자원 할당 정책에 딱 맞지 않고 있었습니다. 따라서 큐 별 사용량 변화에 좀 더 적절한 관리 정책을 다시 정하는 것이 좋겠다고 판단했습니다. 
 
 <p align="center">
-<img src="/assets/works/hadoop_usage_analysis\1편_그림2.jpg" style="width:8in" />
+<img src="/assets/works/hadoop_usage_analysis\1편_그림2.png" style="width:8in" />
 <그림 2> 시간대 별, 큐 별 시스템 사용량 
 </p>
 
@@ -103,7 +103,7 @@ Capacity scheduler의 동작 방식은 위에서 설명한 은행 창구의 업�
 둘째, 현재 설정된 큐별 시스템 자원 할당 비율과 실제 사용량 비율에 차이가 있었습니다. 가령, 현재 정책에서는 Queue B의 할당 비율이 가장 컸으나 실제 사용량에서는 Queue A의 비율이 가장 높았습니다 (그림 3 참조). 물론 중요도로 봤을 때 B에 할당되는 작업이 A보다 더 중요한 작업이기 때문에 이것을 감안한 정책이긴 했지만 현재의 할당 비율이 적절한지 데이터 분석을 통해 확인해 볼 필요가 있겠다고 생각했습니다.
 
 <p align="center">
-<img src="/assets/works/hadoop_usage_analysis\1편_그림3.jpg" style="width:8in" />
+<img src="/assets/works/hadoop_usage_analysis\1편_그림3.png" style="width:8in" />
 <그림 3> 시간대 별, 큐 별 시스템 사용 비율 (작업 요청 시 큐를 지정하지 않으면 default 큐로 할당됨)
 </p>
 
@@ -112,7 +112,7 @@ Capacity scheduler의 동작 방식은 위에서 설명한 은행 창구의 업�
 우선 Night/Day 시간대로 나누고 있는 현행 정책 대신 큐별로 사용량이 가장 높은 시간대를 고려하여 4개의 시간대 (자정 ~ 오전 6시, 오전 6시 ~ 12시, 오전 12시 ~ 오후 6시, 오후 6시 ~ 자정) 로 더 세분화하는 방식을 제안했습니다.
 
 <p align="center">
-<img src="/assets/works/hadoop_usage_analysis\1편_그림4.jpg" style="width:8in" />
+<img src="/assets/works/hadoop_usage_analysis\1편_그림4.png" style="width:8in" />
 <그림 4> 큐 별 사용량이 가장 높은 시간대
 </p>
 
@@ -127,7 +127,7 @@ Capacity scheduler의 동작 방식은 위에서 설명한 은행 창구의 업�
 이후 4개의 시간대를 기준으로 각 큐의 자원 할당 비율을 조정할 수 있는 모든 경우의 수를 나열한 후, 각각에 대해 ‘자원 사용 효율’ 지표를 구했을 때 시간대별 총합이 최소가 되는 정책을 찾는 로직을 작성하였습니다. <그림 5>의 오른쪽 그래프는 최종적으로 찾은 자원 할당 정책을 적용할 경우 예상되는 자원 사용 효율 그래프입니다. 왼쪽 그래프에 비해 상대적으로 모든 시간대에서 전체 큐의 자원 사용 효율 지표가 1에 가깝게 몰려 있는 것을 확인할 수 있습니다. 
 
 <p align="center">
-<img src="/assets/works/hadoop_usage_analysis\1편_그림5.jpg" style="width:8in" />
+<img src="/assets/works/hadoop_usage_analysis\1편_그림5.png" style="width:8in" />
 <그림 5> 시간대 별, 큐 별 자원 사용 효율 그래프
 </p>
 
