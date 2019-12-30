@@ -4,7 +4,7 @@ title: "하둡 시스템 개선을 위한 데이터 분석 #2"
 date: 2019-12-30 18:00:00
 categories: Study
 author : DANBI
-cover: "/assest/bulb.jpg"
+cover: "/assets/bulb.jpg"
 ---
 
 앞선 포스팅(1편 페이지)에서 데이터 분석을 통한 하둡 시스템 개선 프로젝트의목적과 그 첫번째 주제인 capacity scheduler 최적화를 위한 큐별 자원 할당 비율 을 최적화하는 분석을 살펴보았습니다. 
