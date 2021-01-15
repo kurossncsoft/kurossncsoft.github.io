@@ -13,7 +13,8 @@ cover: "/assets/publications.jpg"
 
 ### **사례1. 헌장학교의 교육효과**
 
-​                 **<div style='text-align: center;">"'<img style="max-height:40%; max-width:40%;" src="/assets/study/instrumentvariable/blog29_know.png"></div>** 
+<div style="text-align: center;"><img style="max-height:60%; max-width:60%;" src="/assets/study/instrumentvariable/blog29_know.png"></div>                
+
 ​                                                         [그림1] Knowledge Is Power Program 
 (출처: https://www.upliftingcuracao.com/apps/blog/show/44561427-knowledge-is-power-program-our-live-events-and-this-week-tip)
 
@@ -21,10 +22,11 @@ cover: "/assets/publications.jpg"
 
 성적 향상 여부 확인을 위해 진학 직전의 수학 점수와 진학하여 1년이 지난 후의 수학 점수를 비교하였는데, 단순히 KIPP에 진학한 학생과 다른 공립학교 재학생의 수학 성적 향성 여부를 비교할 경우 학생들의 ‘학습 의지’의 차이를 고려하지 못하는 문제가 있었다. KIPP에 지원한 학생들은 애초에 학습에 대한 의지가 높기 때문에 (KIPP 재학 여부와 상관없이) 성적이 오를 가능성이 높기 때문이다. 따라서 KIPP 재학 여부에 따른 교육 성과의 차이가 존재하는지 분석하려면 학습 의지가 비슷한 학생끼리 비교하는 방법이 필요했다. 연구자들은 이를 위해 당국에서 정한 특정 기준을 만족하는 학생들에 한해 추첨을 통해 입학 자격을 부여하는 ‘추첨 정보’를 도구변수로 사용하였다. 추첨은 임의로 진학 여부를 선정하는 것이기 때문에 학생들의 학습 의지로 인해 성적 향상에 영향을 주는 선택편의가 제거될 수 있기 때문이다.
 
-​                                 <div style='text-align: center;">"'<img style="max-height:40%; max-width:40%;" src="/assets/study/instrumentvariable/헌장학교도식화.png"></div>** 
+    <div style="text-align: center;"><img style="max-height:40%; max-width:40%;" src="/assets/study/instrumentvariable/헌장학교도식화.png"></div> 
+
 ​                               [그림 2] 헌장학교 교육효과 설계 도식화. 점선처리된 변수는 도구변수를 의미함
 
-​                                  <div style='text-align: center;">"'<img style="max-height:40%; max-width:40%;" src="/assets/study/instrumentvariable/헌장학교결과.png"></div>**  
+    <div style="text-align: center;"><img style="max-height:60%; max-width:60%;" src="/assets/study/instrumentvariable/헌장학교결과.png"></div>
 
 ​                                       [표 1] 헌장학교 교육효과 분석 결과. 괄호 안의 값은 표준편차를 의미
 
@@ -40,17 +42,19 @@ cover: "/assets/publications.jpg"
 
 ### **사례2. 첫째 딜레마(양과 질의 상충관계)** 
 
-​                                  <div style='text-align: center;">"'<img style="max-height:40%; max-width:40%;" src="/assets/study/instrumentvariable/ESqTp-zXYAAdQS0.jpg"></div>**   
+<div style="text-align: center;"><img style="max-height:40%; max-width:40%;" src="/assets/study/instrumentvariable/ESqTp-zXYAAdQS0.jpg"></div>
 
 ​                      [그림 3] 부모: 둘째 어린이집 보내고 셋째 동화책 읽어주고… 첫째야, 숙제는 알아서 해주라
 ​                                       (출처: https://twitter.com/IUSSP/status/1236963440394108933)
 
 이번 사례는 사례1과 달리 두 가지의 도구변수를 활용한 경우이다. 가정 규모가 커짐에 따라 첫째에게 돌아가는 교육 수준이 낮아질 것인가에 대한 분석으로 '양과 질의 상충관계' 개념의 분석이 되겠다. 여기서 첫째 자녀의 교육 수준과 가정 규모는 어떤 인과적 관련성이 존재할까. 부모의 차이에 따라 두 변수가 연관성이 있는데 예를 들어, 대가족일수록 부모의 교육 수준이 낮고 부모의 교육 수준이 낮으면 자녀의 교육 수준 또한 낮은 편이다. 그렇기 때문에 단순 비교를 할 경우 부모의 교육 수준이라는 특성에 따른 선택편의가 제거되지 않아 정확한 결과를 도출할 수 없다. 이를 해결하기 위해 교육 수준과 상관없고 가정 규모와 인과관계가 있으면서 무작위적 성질을 가진 도구변수가 필요하게 된다. 그래서 선택된 도구변수가 ‘두번째로 태어나는 자녀가 쌍둥이인지에 대한 정보’와 ‘첫째와 둘째사이의 성별의 동일 여부’이다. 쌍둥이로 태어나는 것과 태어나는 아이의 성별이 결정되는 것은 무작위에 가깝고 쌍둥이 여부는 가정 규모를 늘리는(+2명) 방식으로, 동일 성별 여부는 자녀의 성별이 다양하길 바라는 부모의 원함에 따른 가정 규모의 증가로 인과관계를 가진다.
 
-​                                    <div style='text-align: center;">"'<img style="max-height:40%; max-width:40%;" src="/assets/study/instrumentvariable/첫째딜레마도식화.png"></div>**
+<div style="text-align: center;"><img style="max-height:50%; max-width:50%;" src="/assets/study/instrumentvariable/첫째딜레마도식화.png"></div>
+
 ​                                                              [그림 4] 양과 질의 상충효과 분석 도식화
 
-​                                    <div style='text-align: center;">"'<img style="max-height:40%; max-width:40%;" src="/assets/study/instrumentvariable/첫째딜레마결과.png"></div>** 
+<div style="text-align: center;"><img style="max-height:70%; max-width:70%;" src="/assets/study/instrumentvariable/첫째딜레마결과.png"></div>
+
 [표 2]. 자녀수와 교육 수준의 상충관계에 대한 OLS 및 2SLS 추정치들. 괄호 안의 수치는 표준 오차이며 통계적으로                  유의한 경우만 강조 표시함
 
 이러한 설계를 통해 분석을 수행한 결과, 도구변수를 사용하지 않은 경우(표1의 OLS 추정치) 자녀의 수가 많을수록 교육의 질이 떨어지는, 즉, 양과 질의 상충관계가 합당해 보이는 결과가 도출된 반면에 도구변수를 사용하여 선택편의를 제거(표1의 2SLS 추정치)한 모델에서 그 상충관계의 유의미성이 사라지는 결과가 도출되었다. 이는 다시 말해 OLS에서 얻은 추정량 결과는 선택편의에 영향을 받았음을 의미한다.
