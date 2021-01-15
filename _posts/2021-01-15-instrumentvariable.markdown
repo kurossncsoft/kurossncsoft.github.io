@@ -9,7 +9,7 @@ cover: "/assets/publications.jpg"
 
 ### 시작하며
 
- 단비에서는 기존에 "인과관계를 찾아서" 시리즈와 도메인 지식 결여에 따른 인과추론 분석의 위험성(<https://danbi-ncsoft.github.io/study/2020/06/29/study-domain_knowledge_and_causal_inference.html>) 게시글을 통해 인과관계 추론 분석에 대해 언급한바 있다. 인과관계 추론 분석이 어려운 이유는 앞의 위험성에 관한 게시물에서도 언급되었듯이 인과관계를 추론할 수 있는 영향 변수들을 찾아내는 것이 쉽지 않고 분석가의 도메인 지식이 부족한 경우 분석 설계를 잘못하여 엉뚱한 해석 결과를 내놓을 수 있기 때문이다. 또한 엄밀하게 설계된 실험이 불가능한 사회 과학 영역의 한계를 극복하기 위하여 고안한 장치인 도구변수에 대해서도 소개한 바 있다(<https://danbi-ncsoft.github.io/study/2019/08/07/IV.html> ). 이번 글에서는 Joshua D. Angrist의 저서 ‘고수들의 계량경제학’에 소개된 도구 변수를 사용한 여러 인과추론 분석 사례를 살펴보면서 단기간에 충분한 도메인 지식을 습득하기 어려운 분석가가 참고하면 좋을 분석 설계 방식을 나눠보고자 한다.
+ 단비에서는 기존에 "인과관계를 찾아서" 시리즈와 도메인 지식 결여에 따른 인과추론 분석의 위험성 ([도메인 지식이 결여된 인과 추청이 위험한 이유](<https://danbi-ncsoft.github.io/study/2020/06/29/study-domain_knowledge_and_causal_inference.html>) )게시글을 통해 인과관계 추론 분석에 대해 언급한바 있다. 인과관계 추론 분석이 어려운 이유는 앞의 위험성에 관한 게시물에서도 언급되었듯이 인과관계를 추론할 수 있는 영향 변수들을 찾아내는 것이 쉽지 않고 분석가의 도메인 지식이 부족한 경우 분석 설계를 잘못하여 엉뚱한 해석 결과를 내놓을 수 있기 때문이다. 또한 엄밀하게 설계된 실험이 불가능한 사회 과학 영역의 한계를 극복하기 위하여 고안한 장치인 도구변수에 대해서도 소개한 바 있다([인과관계를 찾아서 3:도구변수](<https://danbi-ncsoft.github.io/study/2019/08/07/IV.html> )). 이번 글에서는 Joshua D. Angrist의 저서 ‘고수들의 계량경제학’에 소개된 도구 변수를 사용한 여러 인과추론 분석 사례를 살펴보면서 단기간에 충분한 도메인 지식을 습득하기 어려운 분석가가 참고하면 좋을 분석 설계 방식을 나눠보고자 한다.
 
 ### **사례1. 헌장학교의 교육효과**
 
@@ -27,7 +27,7 @@ cover: "/assets/publications.jpg"
 
 <div style="text-align: center;">[그림 2] 헌장학교 교육효과 설계 도식화. 점선처리된 변수는 도구변수를 의미함 </div>
 
-<div style="text-align: center;"><img style="max-height:60%; max-width:60%;" src="/assets/study/instrumentvariable/헌장학교결과.png"></div>
+<div style="text-align: center;"><img style="max-height:55%; max-width:55%;" src="/assets/study/instrumentvariable/헌장학교결과.png"></div>
 
 <div style="text-align: center;">[표 1] 헌장학교 교육효과 분석 결과. 괄호 안의 값은 표준편차를 의미</div>
 
@@ -55,7 +55,7 @@ cover: "/assets/publications.jpg"
 
 <div style="text-align: center;"> [그림 4] 양과 질의 상충효과 분석 도식화 </div>
 
-<div style="text-align: center;"><img style="max-height:70%; max-width:70%;" src="/assets/study/instrumentvariable/첫째딜레마결과.png"></div>
+<div style="text-align: center;"><img style="max-height:55%; max-width:55%;" src="/assets/study/instrumentvariable/첫째딜레마결과.png"></div>
 
 <div style="text-align: center;">[표 2]. 자녀수와 교육 수준의 상충관계에 대한 OLS 및 2SLS 추정치들. 괄호 안의 수치는 표준 오차이며 통계적으로 유의한 경우만 강조 표시함 </div>
 
