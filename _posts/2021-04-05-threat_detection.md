@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "PC의 시스템 로그를 활용하여 위협 행위 탐지하기"
-date: 2021-04-05 16:00:00
+title:  "PC의 시스템 로그를 활용하여 위협 행위 탐지하기"
+date:   2021-04-05 16:00:00
 categories: Works
 author : DANBI
-cover: "/assets/code.jpg"
+cover:  "/assets/code.jpg"
 ---
 
 
