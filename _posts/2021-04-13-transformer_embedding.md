@@ -45,7 +45,7 @@
 
 ```html
 <p align="center">
-<img ![7fb4eda6aa89713e268cf3d8fafcd283](/assets/works/transformer/image1.png) style="width:8in" />
+<img src="/assets/works/transformer/image1.png" style="width:8in" />
 ```
 
  <div style="text-align: center;">(출처 : https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd32)</div> 
