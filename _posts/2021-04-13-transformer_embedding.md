@@ -5,7 +5,7 @@
   date:   2021-04-13 09:43:00
   categories: Works
   author : DANBI
-  cover:  "/assests/transformer.jpg"
+  cover:  "/assets/cover/transformer.jpeg"
 
 ---
 
@@ -45,7 +45,8 @@
 
 ```
 <p align="center">
-<img src="/assets/works/transformer/그림1.png" style="width:8in" />
+<img 
+src="/assets/works/transformer/image1.png" style="width:8in" />
 </p>
 ```
 
