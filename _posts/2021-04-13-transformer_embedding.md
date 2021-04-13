@@ -45,12 +45,10 @@
 
 ```
 <p align="center">
-<img src="/assests/works/transformer/그림1.png">
+<img src="/assets/works/transformer/그림1.png">
+  <center>출처 : https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225
 </p>
 ```
-
-  <center>출처 : https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225
-
 
 
   위의 그림은 Transformer를 이용하여 'I love you'라는 영어 문장을 '나는 너를 사랑해'로 번역하는 모델입니다. Transformer를 보신 분들이라면 많이 보셨을 그림일 것 같습니다. 사실, 전체적인 형태는 Seq2Seq와 같습니다. encoder에 입력 문장을 넣고 이를 통해 나온 context vector를 이용하여 decoder에서 teacher forcing과 label을 사용하여 학습하는 형태입니다. 여기서 주목할점은 encoder layer를 거쳐서 나온 임베딩 벡터가 각각의 decoder layer로 들어간다는 점입니다. 밑에서 attention score를 구할 때 하나의 score가 나오는 것이 아닌 decoder layer개수만큼 score가 나오는 것은 이 때문입니다. 아, 그리고 저희는 autoencoder로 Transformer 구조를 사용하기 때문에 입력과 출력이 같겠죠?
