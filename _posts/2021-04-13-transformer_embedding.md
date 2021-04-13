@@ -113,9 +113,11 @@
 
 
 
-​                                                                                                                    ![그림3](C:\Users\chkimsu\Desktop\데이터센터\I&I실\단비블로그\그림3.png)
+<p align="center">
+<img src="/assets/works/transformer\image3.png" style="width:10in" />
+    출처 : https://nlpinkorean.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+ </p>
 
-  <center>출처 : https://nlpinkorean.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
 
 
 
@@ -123,17 +125,23 @@
 
   
 
-![그림4](C:\Users\chkimsu\Desktop\데이터센터\I&I실\단비블로그\그림4.png)
+<p align="center">
+<img src="/assets/works/transformer\image4.png" style="width:10in" />
+    </p>
 
 
+ 
 
  먼저, 사용한 모델의 구조와 함께 Test Data를 Input으로 넣었을 때, Output이 어떻게 나오는지를 확인하였습니다. (Output의 경우 <eos> 토큰이 나올때까지 반복적으로 예측을 합니다. ) 다행히도 Input과 output이 거의 동일하게 나오는 것을 확인할 수 있었습니다. 실제로 Test Data 셋 중 90% 이상의 경우 Input과 Output이 동일하게 나오는 것을 확인할 수 있었습니다. 지면 관계상, 다양한 경우를 보여 드리진 못하지만 대부분의 Test Data 셋에서 Context Vector가 입력 시퀀스를 다시 잘 생성해내는 것을 확인할 수 있다고 말씀드릴 수 있습니다. 
 
 
 
-​                                                                                                              ![그림5](C:\Users\chkimsu\Desktop\데이터센터\I&I실\단비블로그\그림5.png)
+<p align="center">
+<img src="/assets/works/transformer\image5.png" style="width:10in" />
+    </p>
 
 
+ 
 
 ​    위의 두 그래프는 Test data를 모델에 넣었을 때, attention score 를 시각화한 결과입니다. x축은 test data의 sequence(130개)를 나타내고, y축은 test data로 encoding한 후 decoding한 문장 Sequence(131개 - <sos> 토큰까지) 결과입니다. (위의 번역 모델의 그래프와는 축이 반대입니다) 그리고 입출력간의 attention score를 위의 번역 모델처럼 그래프로 나타내 보았습니다. 위에서 설명했듯이, decoder layer 여러 개에 embedding vector를 넣었기 때문에 각각의 decoder layer마다 attention score가 나옴을 확인할 수 있습니다. 첫번째 그래프는 첫번째 decoder layer의 attention score, 두번째 그래프는 두번째 decoder layer의 attention score를 나타냅니다. 아무래도 decoder layer를 한번 더 거칠수록 attention score가 더욱 잘 나오는 것도 확인할 수 있었고 두 경우 모두 기대한대로 계단 모양(downward staircase)의 attention score를 보여주었습니다. 
 
@@ -147,12 +155,25 @@
 
 
 
-**Seq2Seq(LSTM) Autoencoder의 임베딩 벡터를 이용한 이진 분류**
+ <p align="center">
+ Seq2Seq(LSTM) Autoencoder의 임베딩 벡터를 이용한 이진 분류 
+     </p>
+
+<p align="center">
+    
+    |                     | 예측 부정사용자      | 예측 일반 사용자     |
+| ------------------- | -------------------- | -------------------- |
+| 실제 **부정사용자** | 2143 (True Positive) | 404 (False Negative) |
+| 실제 **일반사용자** | 620 (False Positive) | 2957 (True Negative) |
+</p>
+​    
 
 |                     | 예측 부정사용자      | 예측 일반 사용자     |
 | ------------------- | -------------------- | -------------------- |
 | 실제 **부정사용자** | 2143 (True Positive) | 404 (False Negative) |
 | 실제 **일반사용자** | 620 (False Positive) | 2957 (True Negative) |
+
+</p>
 
   - f-1 score : 0.807
   - precision : 0.776
@@ -160,7 +181,11 @@
 
 
 
-  **Transformer - Autoencoder의 임베딩 벡터를 이용한 이진 분류 **
+ <p align="center">
+ Transformer - Autoencoder의 임베딩 벡터를 이용한 이진 분류 
+     </p>
+
+
 
 |                     | 예측 부정사용자      | 예측 일반 사용자     |
 | ------------------- | -------------------- | -------------------- |
