@@ -115,7 +115,9 @@
 
 <p align="center">
 <img src="/assets/works/transformer\image3.png" style="width:10in" />
+    <br>
     출처 : https://nlpinkorean.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+
  </p>
 
 
