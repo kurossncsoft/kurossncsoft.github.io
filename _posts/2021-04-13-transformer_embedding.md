@@ -45,7 +45,7 @@
 
 ```html
 <p align="center">
-<img src="/assets/works/transformer/image1.png" style="width:8in" />
+<img src="/assets/works/transformer/image1.png">
 </p>
 ```
 
