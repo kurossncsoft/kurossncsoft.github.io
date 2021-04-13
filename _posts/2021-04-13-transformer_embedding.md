@@ -43,7 +43,11 @@
 
   
 
-/assests/works/transformer/그림1.png
+```
+<p align="center">
+<img src="/assests/works/transformer/그림1.png">
+</p>
+```
 
   <center>출처 : https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225
 
