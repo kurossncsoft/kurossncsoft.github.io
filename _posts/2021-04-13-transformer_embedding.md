@@ -167,12 +167,15 @@
 
 
 ```html
-<center>
+<div align="center">
+<table>
+     
 |                     | 예측 부정사용자      | 예측 일반 사용자     |
 | ------------------- | -------------------- | -------------------- |
 | 실제 **부정사용자** | 2143 (True Positive) | 404 (False Negative) |
 | 실제 **일반사용자** | 620 (False Positive) | 2957 (True Negative) |
-</center>
+</table>
+</div>
 ```
 
 
