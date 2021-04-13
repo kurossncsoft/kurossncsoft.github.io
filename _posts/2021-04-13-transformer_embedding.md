@@ -45,6 +45,7 @@
 
 <p align="center">
 <img src="/assets/works/transformer\image1.png" style="width:10in" />
+    <br>
     출처: https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225
  </p>
 
@@ -87,6 +88,7 @@
 
 <p align="center">
 <img src="/assets/works/transformer\image2.png" style="width:10in" />
+    <br>
     출처: https://20chally.tistory.com/222
  </p>
 
@@ -161,13 +163,19 @@
  Seq2Seq(LSTM) Autoencoder의 임베딩 벡터를 이용한 이진 분류 
      </p>
 
-<p align="center">
-    
-    |                     | 예측 부정사용자      | 예측 일반 사용자     |
+
+
+
+```html
+<center>
+|                     | 예측 부정사용자      | 예측 일반 사용자     |
 | ------------------- | -------------------- | -------------------- |
 | 실제 **부정사용자** | 2143 (True Positive) | 404 (False Negative) |
 | 실제 **일반사용자** | 620 (False Positive) | 2957 (True Negative) |
-</p>
+</center>
+```
+
+
 ​    
 
 |                     | 예측 부정사용자      | 예측 일반 사용자     |
@@ -175,7 +183,7 @@
 | 실제 **부정사용자** | 2143 (True Positive) | 404 (False Negative) |
 | 실제 **일반사용자** | 620 (False Positive) | 2957 (True Negative) |
 
-</p>
+
 
   - f-1 score : 0.807
   - precision : 0.776
