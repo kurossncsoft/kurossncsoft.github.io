@@ -3,7 +3,7 @@
   layout: post
   title:  "대량의 게임 데이터를 임베딩 해보자!"
   date:   2021-04-13 09:43:00
-  categories: Works
+  categories: works
   author : DANBI
   cover:  "/assets/cover/transformer.jpeg"
 
@@ -43,7 +43,7 @@
 
   
 
-```
+```html
 <p align="center">
 <img ![7fb4eda6aa89713e268cf3d8fafcd283](/assets/works/transformer/image1.png) style="width:8in" />
 ```
