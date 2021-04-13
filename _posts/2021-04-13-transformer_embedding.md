@@ -45,10 +45,8 @@
 
 <p align="center">
 <img src="/assets/works/transformer\image1.png" style="width:10in" />
-    </p>
-
-
-<center>출처: https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225</center>
+    출처: https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225
+ </p>
 
 
 
@@ -89,11 +87,12 @@
 
 <p align="center">
 <img src="/assets/works/transformer\image2.png" style="width:10in" />
+    출처: https://20chally.tistory.com/222
  </p>
 
 
 
-<center>출처: https://20chally.tistory.com/222</center>
+
 
 
 
