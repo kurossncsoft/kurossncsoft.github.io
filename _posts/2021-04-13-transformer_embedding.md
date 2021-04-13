@@ -45,8 +45,8 @@
 
 ```
 <p align="center">
-<img src="/assets/works/transformer/그림1.png">
-  <center>출처 : https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225
+<img src="/assets/works/transformer/그림1.png" style="width:8in" />
+<출처 : https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd32
 </p>
 ```
 
