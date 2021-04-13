@@ -159,27 +159,10 @@
 
 
 
- <p align="center">
- Seq2Seq(LSTM) Autoencoder의 임베딩 벡터를 이용한 이진 분류 
-     </p>
 
+Seq2Seq(LSTM) Autoencoder의 임베딩 벡터를 이용한 이진 분류 
 
-
-
-```html
-<div align="center">
-<table>
-     
-|                     | 예측 부정사용자      | 예측 일반 사용자     |
-| ------------------- | -------------------- | -------------------- |
-| 실제 **부정사용자** | 2143 (True Positive) | 404 (False Negative) |
-| 실제 **일반사용자** | 620 (False Positive) | 2957 (True Negative) |
-</table>
-</div>
-```
-
-
-​    
+   
 
 |                     | 예측 부정사용자      | 예측 일반 사용자     |
 | ------------------- | -------------------- | -------------------- |
@@ -194,9 +177,8 @@
 
 
 
- <p align="center">
- Transformer - Autoencoder의 임베딩 벡터를 이용한 이진 분류 
-     </p>
+
+Transformer - Autoencoder의 임베딩 벡터를 이용한 이진 분류 
 
 
 
