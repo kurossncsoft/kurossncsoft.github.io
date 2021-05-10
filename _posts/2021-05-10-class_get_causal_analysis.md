@@ -17,7 +17,7 @@ cover: "/assets/l2m_cover.jpg"
 
  분석 주제에 대한 배경을 설명드리면 리니지2M에서는 클래스 카드를 획득하고 캐릭터가 그 카드로 변신하여 플레이할 수 있는 시스템이 있습니다. 클래스 카드는 총 6개의 등급(일반, 고급, 희귀, 영웅, 전설, 신화)이 있으며, 영웅 등급 이상인 클래스부터 스탯, 속도, 스킬에 추가 효과를 주는 스킬 각성이 대폭 향상됩니다. 이러한 영웅 이상인 클래스의 특성 때문에 대부분 유저의 게임 초반 목표가 영웅 변신(주로 "영변"이라 부릅니다)일 정도로 이를 획득하는 것이 매우 중요합니다. 그리고, 이를 얻기 위해서는 많은 노력과 어느 정도의 운이 따라야 합니다. 
 
-<img src = "/assets/works/class_get_causal_analysis/image0.png" alt="첫 영변을 얻었을 때 기분이란!" width="50%" />
+<img src = "/assets/works/class_get_causal_analysis/image0.png" alt="첫 영변을 얻었을 때 기분이란!" width="40%" />
 
  로또까지는 아니지만 노력과 행운, 그리고 획득하였을 때 매우 큰 이점이 존재한다는 점을 고려하였을 때, "그렇다면 영웅/전설 클래스 획득이 유저의 플레이 행동 변화를 야기하는 원인이 될까?"라는 궁금증이 생겼고 분석할 가치가 있다고 판단하였습니다. 그래서, 본 포스팅에서는 리니지2M 대상 "최초 영웅/전설 클래스 획득"이 "플레이 변화"에 미치는 영향을 분석한 내용을 공유드리고자 합니다.
 
@@ -58,7 +58,7 @@ cover: "/assets/l2m_cover.jpg"
 
 원인 변수와 결과 변수 사이에 특정 종속 관계가 생기게 됩니다. 이는 해당 종속 관계를 만족하는 원인 변수, 결과 변수 값을 갖는 샘플들만 남게 됨을 의미합니다. 그리고 이는 편향이 발생시키는데 이를 collider bias라고 부릅니다. 
 
-<img src = "assets/works/class_get_causal_analysis/image2.png" alt="원인 변수와 결과 변수에 동시에 영향을 받는 collider" width="50%" />
+<img src = "/assets/works/class_get_causal_analysis/image2.png" alt="원인 변수와 결과 변수에 동시에 영향을 받는 collider" width="50%" />
 
 즉, 실제로는 원인 변수와 결과 변수 간 인과 관계가 없더라도 collider를 통제하여 추정하면 원인 변수와 결과 변수 간에 상관성이 생기게 됩니다. 그리고 우리는 그 상관성을 인과 관계로 오해할 수 있기 때문에 collider는 통제 대상에서 제외해야하는 것입니다.
 
@@ -122,7 +122,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ## 3. 대상 선정
 
-<img src = "/assets/works/class_get_causal_analysis/image3.png" alt="변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭" width="85%" />
+<img src = "/assets/works/class_get_causal_analysis/image3.png" alt="변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭" width="90%" />
 
 분석 대상은 원인 변수 측정 기간 전 영웅/전설 클래스 획득 이력이 없고, 측정 기간 동안 접속 및 영웅/전설 클래스 획득 시도 이력이 있는 유저로 선정하였습니다. 그 후, 원인 변수 측정 기간 동안 영웅/전설 클래스 획득 여부에 따라 실험군, 대조군 후보로 나누고 변수 집계 기간을 고려하기 위해 일자별로 유저를 매칭하였습니다
 
@@ -167,7 +167,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-1. 접속 일수 변화 인과 다이어그램
 
-<img src = "/assets/works/class_get_causal_analysis/image4.png" alt="접속 일수 변화에 대한 인과 다이어그램" width="60%" />
+<img src = "/assets/works/class_get_causal_analysis/image4.png" alt="접속 일수 변화에 대한 인과 다이어그램" width="70%" />
 
 1번 조건
 
@@ -224,7 +224,7 @@ cover: "/assets/l2m_cover.jpg"
 
 | 2020.07.08 ~ 2020.07.14                                      | 2020.12.09 ~ 2020.12.15                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src = "/assets/works/class_get_causal_analysis/image6_1.png" alt="전후 30일 간 접속 일수 변화에 대한 인과 효과(2020.07.08 ~ 2020.07.14)" width="85%" /> | <img src = "/assets/works/class_get_causal_analysis/image6_2.png" alt="전후 30일 간 접속 일수 변화에 대한 인과 효과(2020.12.09 ~ 2020.12.15)" width="85%" /> |
+| <img src = "/assets/works/class_get_causal_analysis/image6_1.png" alt="전후 30일 간 접속 일수 변화에 대한 인과 효과(2020.07.08 ~ 2020.07.14)" width="95%" /> | <img src = "/assets/works/class_get_causal_analysis/image6_2.png" alt="전후 30일 간 접속 일수 변화에 대한 인과 효과(2020.12.09 ~ 2020.12.15)" width="95%" /> |
 
  모든 유저 그룹에서 최초 영웅/전설 클래스는 획득은 30일 간 플레이 증가에 유의한 영향을 미치는 것으로 나타납니다. 여기서 그룹 간 영향의 크기 차이가 존재하는데 그룹1에 비해 게임 참여도가 낮은 그룹2에 더 큰 영향을 미치는 것을 알 수 있습니다.
 
@@ -247,7 +247,7 @@ cover: "/assets/l2m_cover.jpg"
 
 | 2020.07.08 ~ 2020.07.14                                      | 2020.12.09 ~ 2020.12.15                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src = "/assets/works/class_get_causal_analysis/image8_1.png" alt="4주 후 유저 그룹 상향 여부 확률에 대한 인과 효과(2020.07.08 ~ 2020.07.14)" width="85%"/> | <img src = "/assets/works/class_get_causal_analysis/image8_2.png" alt="4주 후 유저 그룹 상향 여부 확률에 대한 인과 효과(2020.12.09 ~ 2020.12.15" width="85%"/> |
+| <img src = "/assets/works/class_get_causal_analysis/image8_1.png" alt="4주 후 유저 그룹 상향 여부 확률에 대한 인과 효과(2020.07.08 ~ 2020.07.14)" width="95%"/> | <img src = "/assets/works/class_get_causal_analysis/image8_2.png" alt="4주 후 유저 그룹 상향 여부 확률에 대한 인과 효과(2020.12.09 ~ 2020.12.15" width="95%"/> |
 
  사용한 로지스틱 회귀 모델에서 회귀 계수는 로그 오즈비를 나타지만 이를 그대로 사용하지 않고, 결과 해석에 편의를 위해 결과 변수가 1일 확률에 대한 원인 변수의 미분값을 이용해 marginal effect 를 구하였습니다. 즉, x축이 의미하는 것은 최초 영웅/전설 클래스 획득이 유저 그룹이 상향될 확률에 미치는 인과 효과를 의미합니다.
 
