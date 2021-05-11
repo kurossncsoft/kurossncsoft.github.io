@@ -344,12 +344,12 @@ x1과 x3의 association이 형성되는 세 가지 경우
 
 1. Chain에 의한 non-causal association
    - bayesian network factorization 
-     - $ p(x_1,x_2,x_3) = p(x_1) * p(x_2 | x_1) *  p(x_3|x_2) $
+     - $$p(x_1,x_2,x_3) = p(x_1) * p(x_2 | x_1) *  p(x_3|x_2)$$
    - x2 통제(조건부 확률)
-     - $ p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)} $(베이즈 정리)
-     - $ {p(x_1) * p(x_2|x_1) * p(x_3 | x_2) \over p(x_2)} = {p(x2, x_1) * p(x_3|x_2) \over p(x_2)} = {p(x_2, x_1) \over p(x_2)} * p(x_3|x_2) = p(x_1 | x_2) * p(x_3 | x_2) $(분자에 bayesian network factorization에 의해 도출 된 식 대입, 베이즈 정리 적용)
-     - $ \newcommand{\indep}{\perp \!\!\! \perp}
-       x_1 \indep x_3 | x_2$(x2를 통제하는 경우, x1과 x3가 독립이 됨) 
+     - $$p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)}$$(베이즈 정리)
+     - $${p(x_1) * p(x_2|x_1) * p(x_3 | x_2) \over p(x_2)} = {p(x2, x_1) * p(x_3|x_2) \over p(x_2)} = {p(x_2, x_1) \over p(x_2)} * p(x_3|x_2) = p(x_1 | x_2) * p(x_3 | x_2)$$(분자에 bayesian network factorization에 의해 도출 된 식 대입, 베이즈 정리 적용)
+     - $$\newcommand{\indep}{\perp \!\!\! \perp}
+       x_1 \indep x_3 | x_2$$(x2를 통제하는 경우, x1과 x3가 독립이 됨) 
      - **즉, chain의 경우 중간에 위치한 노드(변수)를 통제하면 해당 non-causal association(x1 → x3)가 block 됨**
 2. Fork에 의한 non-causal association
    - bayesian network factorization 
