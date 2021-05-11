@@ -35,7 +35,7 @@ cover: "/assets/l2m_cover.jpg"
 
 
 
-## 인과 분석이 뭐지?
+## 왜 인과 분석을 사용하지?
 
  본 분석에서 확인하고자 하는 것은 "최초 영웅/전설 클래스 획득"이 "플레이 변화"에 미치는 통계적 인과 효과 및 유의성입니다. 그렇다면 이를 측정하기 위해서는 어떤 방법을 사용하면 될까요? 단순하게 생각하면 아래와 같이 "클래스 카드 획득 여부"에 따른 실험군, 대조군의 "플레이 변화의 평균"이 통계적으로 차이가 존재하는지 검정하는 방법을 생각해볼 수 있을 것입니다. 
 
@@ -48,7 +48,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### confounder(교란 변수)
 
-<p><img src = "/assets/works/class_get_causal_analysis/image1.png" width="50%" /><br><p align="center">[그림2]원인 변수와 결과 변수에 동시에 영향을 주는 교란 변수</p></p>
+<p><img src = "/assets/works/class_get_causal_analysis/image1.png" width="50%" /><br>[그림2]원인 변수와 결과 변수에 동시에 영향을 주는 교란 변수</p>
 
 
 
@@ -64,7 +64,7 @@ cover: "/assets/l2m_cover.jpg"
 
 원인 변수와 결과 변수 사이에 특정 종속 관계가 생기게 됩니다. 이는 해당 종속 관계를 만족하는 원인 변수, 결과 변수 값을 갖는 샘플들만 남게 됨을 의미합니다. 그리고 이는 편향이 발생시키는데 이를 collider bias라고 부릅니다. 
 
-<p><img src = "/assets/works/class_get_causal_analysis/image2.png" width="50%" /><br><p align="center">[그림3]원인 변수와 결과 변수에 동시에 영향을 받는 collider</p></p>
+<p><img src = "/assets/works/class_get_causal_analysis/image2.png" width="50%" /><br>[그림3]원인 변수와 결과 변수에 동시에 영향을 받는 collider</p>
 
 
 
@@ -134,7 +134,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ## 3. 대상 선정
 
-<p><img src = "/assets/works/class_get_causal_analysis/image3.png" width="90%" /><br><p align="center">[그림4]변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭</p></p>
+<p align="center"><img src = "/assets/works/class_get_causal_analysis/image3.png" width="90%" /><br>[그림4]변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭</p>
 
 분석 대상은 원인 변수 측정 기간 전 영웅/전설 클래스 획득 이력이 없고, 측정 기간 동안 접속 및 영웅/전설 클래스 획득 시도 이력이 있는 유저로 선정하였습니다. 그 후, 원인 변수 측정 기간 동안 영웅/전설 클래스 획득 여부에 따라 실험군, 대조군 후보로 나누고 변수 집계 기간을 고려하기 위해 일자별로 유저를 매칭하였습니다
 
@@ -179,7 +179,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-1. 접속 일수 변화 인과 다이어그램
 
-<p><img src = "/assets/works/class_get_causal_analysis/image4.png" width="70%" /><br><p align="center">[그림5]접속 일수 변화에 대한 인과 다이어그램</p></p>
+<p><img src = "/assets/works/class_get_causal_analysis/image4.png" width="70%" /><br>[그림5]접속 일수 변화에 대한 인과 다이어그램</p>
 
 1번 조건
 
@@ -207,7 +207,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-2. 결제 금액 변화 인과 다이어그램
 
-<p><img src = "/assets/works/class_get_causal_analysis/image5.png" width="60%" /><br><p align="center">[그림6]결제 금액 변화에 대한 인과 다이어그램</p></p>
+<p><img src = "/assets/works/class_get_causal_analysis/image5.png" width="60%" /><br>[그림6]결제 금액 변화에 대한 인과 다이어그램</p>
 
 위의 방식과 마찬가지로 최종 통제 변수를 선정하여 모델을 설계하면 아래와 같습니다.
 
@@ -267,7 +267,7 @@ cover: "/assets/l2m_cover.jpg"
 
 유저 그룹 상향은 전반적인 게임 참여도 증가를 의미하므로, 아래와 같이 해석할 수 있습니다.
 
-**→ 영웅/전설 클래스를 획득은 유저의 전반적인 게임 플레이 증가에 영향을 미치며, 특히 게임 참여도가 저조한 그룹에 효과가 크게 나타난다.**
+**→ 영웅/전설 클래스를 획득은 유저의 전반적인 게임 플레이 증가에 영향을 미치며, 특히 게임 참여도가 저조한 그룹에 효과가 크게 나타난다**
 
 # **마치며**
 
