@@ -249,7 +249,7 @@ cover: "/assets/l2m_cover.jpg"
 
 |                 대규모 클래스 업데이트 이후                  |                 소규모 클래스 업데이트 이후                  |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src = "/assets/works/class_get_causal_analysis/image6_1.png" width="95%" /> | <img src = "/assets/works/class_get_causal_analysis/image6_2.png"width="95%" /> |
+| <img src = "/assets/works/class_get_causal_analysis/image6_1.png" width="95%" /> | <img src = "/assets/works/class_get_causal_analysis/image6_2.png" width="95%" /> |
 
  모든 유저 그룹에서 최초 영웅/전설 클래스는 획득은 30일 간 플레이 증가에 유의한 영향을 미치는 것으로 나타납니다. 여기서 그룹 간 영향의 크기 차이가 존재하는데 그룹1에 비해 게임 참여도가 낮은 그룹2에 더 큰 영향을 미치는 것을 알 수 있습니다.
 
