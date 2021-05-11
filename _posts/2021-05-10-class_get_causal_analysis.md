@@ -233,7 +233,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-1. 접속 일수 변화에 미치는 인과 효과 추정
 
-|                   2020.07.08 ~ 2020.07.14                    |                   2020.12.09 ~ 2020.12.15                    |
+|       대규모 클래스 업데이트(2020.07.08 ~ 2020.07.14)        |       소규모 클래스 업데이트(2020.12.09 ~ 2020.12.15)        |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src = "/assets/works/class_get_causal_analysis/image6_1.png" alt="전후 30일 간 접속 일수 변화에 대한 인과 효과(2020.07.08 ~ 2020.07.14)" width="95%" /> | <img src = "/assets/works/class_get_causal_analysis/image6_2.png" alt="전후 30일 간 접속 일수 변화에 대한 인과 효과(2020.12.09 ~ 2020.12.15)" width="95%" /> |
 
@@ -245,7 +245,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-2. 결제 금액 변화에 미치는 인과 효과 추정
 
-| 구분   |                   2020.07.08 ~ 2020.07.14                    |                   2020.12.09 ~ 2020.12.15                    |
+| 구분   |       대규모 클래스 업데이트(2020.07.08 ~ 2020.07.14)        |       소규모 클래스 업데이트(2020.12.09 ~ 2020.12.15)        |
 | ------ | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | 무과금 | <img src = "/assets/works/class_get_causal_analysis/image7_1.png" alt="전후 30일 간 결제 금액 변화에 대한 인과 효과(무과금, 2020.07.08 ~ 2020.07.14)"/> | <img src = "/assets/works/class_get_causal_analysis/image7_2.png" alt="전후 30일 간 결제 금액 변화에 대한 인과 효과(무과금, 2020.12.09 ~ 2020.12.15)"/> |
 | 과금   | <img src = "/assets/works/class_get_causal_analysis/image7_3.png" alt="전후 30일 간 결제 금액 변화에 대한 인과 효과(과금, 2020.07.08 ~ 2020.07.14)"/> | <img src = "/assets/works/class_get_causal_analysis/image7_4.png" alt="전후 30일 간 결제 금액 변화에 대한 인과 효과(과금, 2020.12.09 ~ 2020.12.15)"/> |
@@ -256,7 +256,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-3. 유저 그룹 상향 여부에 미치는 인과 효과 추정
 
-|                   2020.07.08 ~ 2020.07.14                    |                   2020.12.09 ~ 2020.12.15                    |
+|       대규모 클래스 업데이트(2020.07.08 ~ 2020.07.14)        |       소규모 클래스 업데이트(2020.12.09 ~ 2020.12.15)        |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src = "/assets/works/class_get_causal_analysis/image8_1.png" alt="4주 후 유저 그룹 상향 여부 확률에 대한 인과 효과(2020.07.08 ~ 2020.07.14)" width="95%"/> | <img src = "/assets/works/class_get_causal_analysis/image8_2.png" alt="4주 후 유저 그룹 상향 여부 확률에 대한 인과 효과(2020.12.09 ~ 2020.12.15" width="95%"/> |
 
@@ -277,3 +277,100 @@ cover: "/assets/l2m_cover.jpg"
 즉, 분석 기법이 아무리 훌륭하여도 도메인 지식이 없다면 설계 단계부터 잘못되어 있을 가능성이 높고 결국 잘못된 분석 결과가 나올 수 있습니다. 그만큼 설계 부분에 많은 고민과 시간을 투자해야하는 것이 중요하다는 것을 느낄 수 있었습니다.
 
 앞으로 게임 컨텐츠나 이벤트가 유저의 플레이에 어떤 영향을 미치는지 분석을 진행해볼 예정입니다. 본 분석처럼 재미있는 주제로 찾아뵙도록 하겠습니다 :) 
+
+
+
+# Appendix.
+
+#### 인과효과 추정 시 고려사항
+
+- T : 원인변수
+- Y : 결과변수
+- X : 외생 변수
+
+![img](https://wiki.ncsoft.com/download/thumbnails/389353603/image2021-4-8_11-39-24.png?version=1&modificationDate=1617849564000&api=v2)
+
+- T → Y : Causal Association (분석가가 알고 싶어하는 인과효과)
+- T ← X → Y : Non-Causal Association (인과효과 이외에 T와 Y를 연결하는 path)
+  - path : 두 노드 간 연결될 수 있는 경로(edge의 방향을 고려하지 않음)
+
+
+
+T가 Y에 미치는 인과효과 추정을 위해서는 non-causal association을 block해야 한다.
+
+![img](https://wiki.ncsoft.com/download/thumbnails/389353603/image2021-4-8_11-45-11.png?version=1&modificationDate=1617849911000&api=v2)
+
+- block : 통제를 통해 non-causal association 상에서 T와 Y의 관계를 독립으로 만들어 주는 것
+- 노드 간의 관계(화살표 방향)에 따라 통제하는 방법이 다름
+
+
+
+#### 인과 그래프에서 association의 종류
+
+x1과 x3의 association이 형성되는 세 가지 경우
+
+1. Chain
+   ![img](https://wiki.ncsoft.com/download/attachments/389353603/image2021-4-8_11-45-53.png?version=1&modificationDate=1617849953000&api=v2)
+
+2. Fork
+
+   ![img](https://wiki.ncsoft.com/download/thumbnails/389353603/image2021-4-8_11-46-4.png?version=1&modificationDate=1617849964000&api=v2)
+
+   - x2는 x1과 x3에 **영향을 줌** : x2는 x1과 x3의 Confounder
+
+3. Imorality
+
+   ![img](https://wiki.ncsoft.com/download/thumbnails/389353603/image2021-4-8_11-46-18.png?version=1&modificationDate=1617849978000&api=v2)
+
+   - x2는 x1과 x3의 **영향을 받음** : x2는 x1과 x3의 Collider
+
+
+
+#### non-causal association block
+
+위의 Chain, Fork, Immorality 관계에서 non-causal association을 block하는 방법
+
+(위의 예시에서 x1(원인변수), x3(결과변수)로 간주함)
+
+
+
+**확인 절차**
+
+1) bayesian network factorization을 통해 확률을 계산 
+
+-  bayesian network factorization
+
+2) 변수 통제(조건부 확률) 시 독립성 확인 
+
+1. Chain에 의한 non-causal association
+   - bayesian network factorization 
+     - $ p(x_1,x_2,x_3) = p(x_1) * p(x_2 | x_1) *  p(x_3|x_2) $
+   - x2 통제(조건부 확률)
+     - $ p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)} $(베이즈 정리)
+     - $ {p(x_1) * p(x_2|x_1) * p(x_3 | x_2) \over p(x_2)} = {p(x2, x_1) * p(x_3|x_2) \over p(x_2)} = {p(x_2, x_1) \over p(x_2)} * p(x_3|x_2) = p(x_1 | x_2) * p(x_3 | x_2) $(분자에 bayesian network factorization에 의해 도출 된 식 대입, 베이즈 정리 적용)
+     - $ \newcommand{\indep}{\perp \!\!\! \perp}
+       x_1 \indep x_3 | x_2$(x2를 통제하는 경우, x1과 x3가 독립이 됨) 
+     - **즉, chain의 경우 중간에 위치한 노드(변수)를 통제하면 해당 non-causal association(x1 → x3)가 block 됨**
+2. Fork에 의한 non-causal association
+   - bayesian network factorization 
+     1. p(x1,x2,x3)=p(x2)∗p(x1|x2)∗p(x3|x2)
+   - x2 통제(조건부 확률)
+     - p(x1,x3|x2)=p(x1,x2,x3)p(x2) (베이즈 정리)
+     - p(x2)∗p(x1|x2)∗p(x3|x2)p(x2)=p(x1,x2)∗p(x3|x2)p(x2)=p(x1,x2)p(x2)∗p(x3|x2)=p(x1|x2)∗p(x3|x2)
+       (분자에 bayesian network factorization에 의해 도출 된 식 대입, 베이즈 정리 적용)
+     - x1⊥⊥x3|x2(x2를 통제하는 경우, x1과 x3가 독립이 됨)
+     - **즉, fork의 경우 confounder를 통제하면 해당 non-causal association(x1 → x3)가 block 됨**
+3. Immorality에 의한 non-causal association
+   - bayesian network factorization
+     - p(x1,x2,x3)=p(x1)∗p(x3)∗p(x2|x1,x3)
+   - x2 통제(조건부 확률)
+     - p(x1,x3|x2)=p(x1,x2,x3)p(x2) (베이즈 정리)
+     - p(x1)∗p(x3)∗p(x2|x1,x3)p(x2) (분자에 위의 식 대입)
+     - x1 ⊥̸⊥x3|x2 (x2를 통제하는 경우, x1과 x2는 독립이 아님)
+   - x2에 상관없이 x1, x3의 확률 계산
+     - p(x1,x3)=∑x2p(x1,x3,x2)(marginalize)
+     - p(x1,x3)=∑x2p(x1,x3,x2)=∑x2p(x1)∗p(x3)∗p(x2|x1,x3)=p(x1)∗p(x3)∗∑x2p(x2|x1,x3)=p(x1)∗p(x3)∗1=p(x1)∗p(x3)
+       (bayesian network factorization에 의해 도출 된 식 대입)
+     - x1⊥⊥x3 (x2를 통제하지 않는 경우, x1과 x3가 독립이 됨)
+     - 즉, fork의 경우 colllider를 통제하지 않는 경우 이를 제외한 두 노드는 독립임
+       - **collider를 통제하면 해당 non-causal association이 발생함(collider bias)**
