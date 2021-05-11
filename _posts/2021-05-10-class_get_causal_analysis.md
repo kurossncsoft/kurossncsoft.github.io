@@ -292,9 +292,9 @@ cover: "/assets/l2m_cover.jpg"
 
 <img src = "/assets/works/class_get_causal_analysis/image9_1.png" width="25%"/>
 
-- T → Y : Causal Association (분석가가 알고 싶어하는 인과효과)
+- T → Y : Causal Association (분석가가 알고 싶어하는 T와 Y 사이의 인과효과)
 - T ← X → Y : Non-Causal Association (인과효과 이외에 T와 Y를 연결하는 path)
-  - path : 두 노드 간 연결될 수 있는 경로(edge의 방향을 고려하지 않음)
+  - path : edge의 방향에 상관 없이 두 노드 간 연결될 수 있는 경로
 
 
 
@@ -373,29 +373,29 @@ x1과 x3의 association이 형성되는 세 가지 경우
 2. **Fork에 의한 non-causal association**
 
    - bayesian network factorization 
-     - $$ p(x_1,x_2,x_3) = p(x_2) * p(x_1 | x_2) *  p(x_3|x_2) $$
+     - $$p(x_1,x_2,x_3) = p(x_2) * p(x_1 | x_2) *  p(x_3|x_2)$$
    - x2 통제 시 x1과 x3의 독립성 확인
-     - $$ p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)} $$ (베이즈 정리)
-     - $$ {p(x_2) * p(x_1 | x_2) *  p(x_3|x_2) \over p(x_2)} = {p(x1, x_2) * p(x_3|x_2) \over p(x_2)} = {p(x_1, x_2) \over p(x_2)} * p(x_3|x_2) = p(x_1 | x_2) * p(x_3 | x_2) $$
+     - $$p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)}$$ (베이즈 정리)
+     - $${p(x_2) * p(x_1 | x_2) *  p(x_3|x_2) \over p(x_2)} = {p(x1, x_2) * p(x_3|x_2) \over p(x_2)} = {p(x_1, x_2) \over p(x_2)} * p(x_3|x_2) = p(x_1 | x_2) * p(x_3 | x_2)$$
        (분자에 bayesian network factorization에 의해 도출 된 식 대입, 베이즈 정리 적용)
-     - \newcommand{\indep}{\perp \!\!\! \perp}
-       x_1 \indep x_3 | x_2$$(x2를 통제하는 경우, x1과 x3가 독립이 됨)
+     - $$\newcommand{\indep}{\perp \!\!\! \perp}
+       x_1 \indep x_3 | x_2$$ (x2를 통제하는 경우, x1과 x3가 독립이 됨)
      - **즉, fork의 경우 confounder를 통제하면 해당 non-causal association(x1 → x3)가 block 됨**
 
 3. **Immorality에 의한 non-causal association**
 
    - bayesian network factorization
-     - $$ p(x_1,x_2,x_3) = p(x_1) * p(x_3) *  p(x_2|x_1, x_3) $$
+     - $$p(x_1,x_2,x_3) = p(x_1) * p(x_3) *  p(x_2|x_1, x_3)$$
    - x2 통제 시 x1과 x3의 독립성 확인
-     - $$ p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)} $$ (베이즈 정리)
-     - $$ { p(x_1) * p(x_3) *  p(x_2|x_1, x_3) \over p(x_2)} $$ (분자에 위의 식 대입)
-     - \newcommand{\indep}{\perp \!\!\! \perp}
+     - $$p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)}$$ (베이즈 정리)
+     - $${ p(x_1) * p(x_3) *  p(x_2|x_1, x_3) \over p(x_2)}$$ (분자에 위의 식 대입)
+     - $$ \newcommand{\indep}{\perp \!\!\! \perp}
        x_1 \ \not\indep x_3 | x_2 $$ (**x2를 통제하는 경우, x1과 x2는 독립이 아님**)
    - x2를 통제하지 않고 x1, x3의 독립성 확인
-     - $$ p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)} $$(marginalize)
-     - $$ p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)} = \sum_{x_2} {p(x_1) * p(x_3) *  p(x_2|x_1, x_3)} ={p(x_1) * p(x_3) * \sum_{x_2}   p(x_2|x_1, x_3)} = {p(x_1) * p(x_3) * 1 = {p(x_1) * p(x_3) $$
+     - $$p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)}$$ (marginalize)
+     - $$ p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)} = \sum_{x_2} {p(x_1) * p(x_3) * p(x_2|x_1, x_3)} =p(x_1) * p(x_3) * \sum_{x_2} { p(x_2|x_1, x_3) } = p(x_1) * p(x_3) * 1 = p(x_1) * p(x_3)$$
        (bayesian network factorization에 의해 도출 된 식 대입)
-     - \newcommand{\indep}{\perp \!\!\! \perp}
+     - $$ \newcommand{\indep}{\perp \!\!\! \perp}
        x_1 \indep x_3 $$ (x2를 통제하지 않는 경우, x1과 x3가 독립이 됨)
      - 즉, fork의 경우 colllider를 통제하지 않는 경우 이를 제외한 두 노드는 독립임
        - **collider를 통제하면 해당 non-causal association이 발생(collider bias)**
