@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "영변(영웅 변신) 획득은 플레이 변화에 영향을 미칠까?"
-date: 2021-05-11 11:00:00
+date: 2021-05-11 13:23:00
 categories: Works
 author : DANBI
 cover: "/assets/l2m_cover.jpg"
@@ -20,7 +20,8 @@ cover: "/assets/l2m_cover.jpg"
 
 
 <p align="center"><img src = "/assets/works/class_get_causal_analysis/image0.png" width="40%" /><br>
-    [그림1]첫 영변을 얻었을 때의 기분이란!</p>
+    [그림1] 첫 영변을 얻었을 때의 기분이란!</p>
+
 
 
  로또까지는 아니지만 노력과 행운, 그리고 획득하였을 때 매우 큰 이점이 존재한다는 점을 고려하였을 때, "그렇다면 영웅/전설 클래스 획득이 유저의 플레이 행동 변화를 야기하는 원인이 될까?"라는 궁금증이 생겼고 분석할 가치가 있다고 판단하였습니다. 그래서, 본 포스팅에서는 리니지2M 대상 "최초 영웅/전설 클래스 획득"이 "플레이 변화"에 미치는 영향을 분석한 내용을 공유드리고자 합니다.
@@ -48,7 +49,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### confounder(교란 변수)
 
-<p><img src = "/assets/works/class_get_causal_analysis/image1.png" width="50%" /><br>[그림2]원인 변수와 결과 변수에 동시에 영향을 주는 교란 변수</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image1.png" width="50%" /><br>[그림2] 원인 변수와 결과 변수에 동시에 영향을 주는 교란 변수</p>
 
 
 
@@ -62,7 +63,7 @@ cover: "/assets/l2m_cover.jpg"
 
  그렇다면 교란 변수로 판단되는 가능한 많은 변수를 통제하여 인과 관계를 추정하면 될까요? 여기서 조심해야할 것이 있습니다. 원인 변수와 결과 변수의 영향을 동시에 받는 변수인 collider는 통제 대상에서 제외하여야 합니다. 원인 변수와 결과 변수의 영향을 동시에 받는 collider를 통제하면 이를 만족하는 원인 변수 값, 결과 변수 값을 가진 샘플들만 남게 됩니다. 이는 원인 변수, 결과 변수 간에 특정 종속 관계를 형성하고 최종적으로 분석 결과에 편향을 유발합니다. 이를 collider bias라고 부릅니다. 
 
-<p><img src = "/assets/works/class_get_causal_analysis/image2.png" width="50%" /><br>[그림3]원인 변수와 결과 변수에 동시에 영향을 받는 collider</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image2.png" width="50%" /><br>[그림3] 원인 변수와 결과 변수에 동시에 영향을 받는 collider</p>
 
 
 
@@ -98,9 +99,9 @@ cover: "/assets/l2m_cover.jpg"
 * 원인 변수
   *  최초 영웅/전설 클래스 획득 여부 (획득 : 실험군, 미획득 : 대조군)
 * 결과 변수(플레이 변화)
-  * 전후 30일 간 접속 일수 변화(1번 항목 반영)
-  * 전후 30일 간 결제 금액 변화(1번 항목 반영)
-  * 4주 후 유저 그룹 지표 상향 여부(2번 항목 반영)
+  * 전후 30일 간 접속 일수 변화 : 이후 30일 간 접속 일수 - 이전 30일 간 접속 일수
+  * 전후 30일 간 결제 금액 변화 : 이후 30일 간 결제 금액 - 이전 30일 간 결제 금액
+  * 1/2/3/4주 후 유저 그룹 지표 상향 여부 : 1주 전 유저 그룹 지표 대비 n주 후 유저 그룹 지표가 상향 시 1, 아닌 경우 0 
 
 #### 1-2. 통제 변수 후보
 
@@ -132,7 +133,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ## 3. 대상 선정
 
-<p align="center"><img src = "/assets/works/class_get_causal_analysis/image3.png" width="90%" /><br>[그림4]변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭</p>
+<p align="center"><img src = "/assets/works/class_get_causal_analysis/image3.png" width="90%" /><br>[그림4] 변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭</p>
 
 분석 대상은 원인 변수 측정 기간 전 영웅/전설 클래스 획득 이력이 없고, 측정 기간 동안 접속 및 영웅/전설 클래스 획득 시도 이력이 있는 유저로 선정하였습니다. 그 후, 원인 변수 측정 기간 동안 영웅/전설 클래스 획득 여부에 따라 실험군, 대조군 후보로 나누고 변수 집계 기간을 고려하기 위해 일자별로 유저를 매칭하였습니다
 
@@ -177,7 +178,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-1. 접속 일수 변화 인과 다이어그램
 
-<p><img src = "/assets/works/class_get_causal_analysis/image4.png" width="70%" /><br>[그림5]접속 일수 변화에 대한 인과 다이어그램</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image4.png" width="70%" /><br>[그림5] 접속 일수 변화에 대한 인과 다이어그램</p>
 
 1번 조건
 
@@ -205,7 +206,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-2. 결제 금액 변화 인과 다이어그램
 
-<p><img src = "/assets/works/class_get_causal_analysis/image5.png" width="60%" /><br>[그림6]결제 금액 변화에 대한 인과 다이어그램</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image5.png" width="60%" /><br>[그림6] 결제 금액 변화에 대한 인과 다이어그램</p>
 
 위의 방식과 마찬가지로 최종 통제 변수를 선정하여 모델을 설계하면 아래와 같습니다.
 
