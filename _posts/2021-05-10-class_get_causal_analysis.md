@@ -48,7 +48,9 @@ cover: "/assets/l2m_cover.jpg"
 
 ### confounder(교란 변수)
 
-<p><img src = "/assets/works/class_get_causal_analysis/image1.png" width="50%" /><br>[그림2]원인 변수와 결과 변수에 동시에 영향을 주는 교란 변수</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image1.png" width="50%" /><br><p align="center">[그림2]원인 변수와 결과 변수에 동시에 영향을 주는 교란 변수</p></p>
+
+
 
 * 애초에 게임에 애착이 많은 유저는 클래스 획득 가능성이 높을 수 있으며, 플레이 변화가 증가할 가능성(게임을 열심히 함)도 높을 수 있습니다.
 * 게임에 대한 애착도가 클래스 획득과 플레이 변화에 동시에 영향을 주기 때문에, 실제로 클래스 획득과 플레이 변화 간에 인과 관계가 없더라도 "상관성"이 생길 수 있습니다.(위에서 예를 들어 설명한 회귀식의 결과는 "인과 관계"가 아니라 교란 변수에 의한 "상관성"일 가능성이 높습니다)
@@ -62,7 +64,9 @@ cover: "/assets/l2m_cover.jpg"
 
 원인 변수와 결과 변수 사이에 특정 종속 관계가 생기게 됩니다. 이는 해당 종속 관계를 만족하는 원인 변수, 결과 변수 값을 갖는 샘플들만 남게 됨을 의미합니다. 그리고 이는 편향이 발생시키는데 이를 collider bias라고 부릅니다. 
 
-<p><img src = "/assets/works/class_get_causal_analysis/image2.png" width="50%" /><br>[그림3]원인 변수와 결과 변수에 동시에 영향을 받는 collider</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image2.png" width="50%" /><br><p align="center">[그림3]원인 변수와 결과 변수에 동시에 영향을 받는 collider</p></p>
+
+
 
 즉, 실제로는 원인 변수와 결과 변수 간 인과 관계가 없더라도 collider를 통제하여 추정하면 원인 변수와 결과 변수 간에 상관성이 생기게 됩니다. 그리고 우리는 그 상관성을 인과 관계로 오해할 수 있기 때문에 collider는 통제 대상에서 제외해야하는 것입니다.
 
@@ -130,7 +134,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ## 3. 대상 선정
 
-<p><img src = "/assets/works/class_get_causal_analysis/image3.png" alt="변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭" width="90%" /><br>변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image3.png" width="90%" /><br><p align="center">[그림4]변수 집계 기간 선정을 위한 실험군, 대조군 d시점 매칭</p></p>
 
 분석 대상은 원인 변수 측정 기간 전 영웅/전설 클래스 획득 이력이 없고, 측정 기간 동안 접속 및 영웅/전설 클래스 획득 시도 이력이 있는 유저로 선정하였습니다. 그 후, 원인 변수 측정 기간 동안 영웅/전설 클래스 획득 여부에 따라 실험군, 대조군 후보로 나누고 변수 집계 기간을 고려하기 위해 일자별로 유저를 매칭하였습니다
 
@@ -175,7 +179,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-1. 접속 일수 변화 인과 다이어그램
 
-<p><img src = "/assets/works/class_get_causal_analysis/image4.png" width="70%" /><br>[그림4]접속 일수 변화에 대한 인과 다이어그램</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image4.png" width="70%" /><br><p align="center">[그림5]접속 일수 변화에 대한 인과 다이어그램</p></p>
 
 1번 조건
 
@@ -203,7 +207,7 @@ cover: "/assets/l2m_cover.jpg"
 
 ### 5-2. 결제 금액 변화 인과 다이어그램
 
-<p><img src = "/assets/works/class_get_causal_analysis/image5.png" width="60%" /><br>[그림5]결제 금액 변화에 대한 인과 다이어그램</p>
+<p><img src = "/assets/works/class_get_causal_analysis/image5.png" width="60%" /><br><p align="center">[그림6]결제 금액 변화에 대한 인과 다이어그램</p></p>
 
 위의 방식과 마찬가지로 최종 통제 변수를 선정하여 모델을 설계하면 아래와 같습니다.
 
