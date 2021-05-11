@@ -284,11 +284,13 @@ cover: "/assets/l2m_cover.jpg"
 
 #### 인과효과 추정 시 고려사항
 
+*아래 그림들의 출처는 [(YOUTUBE) Brady Neal - Causal Inference](https://www.youtube.com/c/BradyNealCausalInference/featured)입니다.*
+
 - T : 원인변수
 - Y : 결과변수
 - X : 외생 변수
 
-![img](https://wiki.ncsoft.com/download/thumbnails/389353603/image2021-4-8_11-39-24.png?version=1&modificationDate=1617849564000&api=v2)
+<img src = "/assets/works/class_get_causal_analysis/image9_1.png" width="15%"/>
 
 - T → Y : Causal Association (분석가가 알고 싶어하는 인과효과)
 - T ← X → Y : Non-Causal Association (인과효과 이외에 T와 Y를 연결하는 path)
@@ -296,9 +298,9 @@ cover: "/assets/l2m_cover.jpg"
 
 
 
-T가 Y에 미치는 인과효과 추정을 위해서는 non-causal association을 block해야 한다.
+T가 Y에 미치는 인과효과 추정을 위해서는 non-causal association을 block해야 합니다
 
-![img](https://wiki.ncsoft.com/download/thumbnails/389353603/image2021-4-8_11-45-11.png?version=1&modificationDate=1617849911000&api=v2)
+<img src = "/assets/works/class_get_causal_analysis/image9_2.png" width="15%"/>
 
 - block : 통제를 통해 non-causal association 상에서 T와 Y의 관계를 독립으로 만들어 주는 것
 - 노드 간의 관계(화살표 방향)에 따라 통제하는 방법이 다름
@@ -310,19 +312,20 @@ T가 Y에 미치는 인과효과 추정을 위해서는 non-causal association�
 x1과 x3의 association이 형성되는 세 가지 경우
 
 1. Chain
-   ![img](https://wiki.ncsoft.com/download/attachments/389353603/image2021-4-8_11-45-53.png?version=1&modificationDate=1617849953000&api=v2)
+
+   <img src = "/assets/works/class_get_causal_analysis/image9_3.png" width="15%"/>
 
 2. Fork
 
-   ![img](https://wiki.ncsoft.com/download/thumbnails/389353603/image2021-4-8_11-46-4.png?version=1&modificationDate=1617849964000&api=v2)
+   <img src = "/assets/works/class_get_causal_analysis/image9_4.png" width="15%"/>
 
-   - x2는 x1과 x3에 **영향을 줌** : x2는 x1과 x3의 Confounder
+   - $$x_2$$는 $$x_1$$과 $$x_3$$에 **영향을 줌** : x2는 x1과 x3의 Confounder
 
 3. Imorality
 
-   ![img](https://wiki.ncsoft.com/download/thumbnails/389353603/image2021-4-8_11-46-18.png?version=1&modificationDate=1617849978000&api=v2)
+   <img src = "/assets/works/class_get_causal_analysis/image9_5.png" width="15%"/>
 
-   - x2는 x1과 x3의 **영향을 받음** : x2는 x1과 x3의 Collider
+   - $$x_2$$는 $$x_1$$과 $$x_3$$의 **영향을 받음** : x2는 x1과 x3의 Collider
 
 
 
@@ -330,7 +333,7 @@ x1과 x3의 association이 형성되는 세 가지 경우
 
 위의 Chain, Fork, Immorality 관계에서 non-causal association을 block하는 방법
 
-(위의 예시에서 x1(원인변수), x3(결과변수)로 간주함)
+(위의 예시에서 $$x_1$$(원인변수), $$x_3$$(결과변수)로 간주함)
 
 
 
@@ -338,39 +341,61 @@ x1과 x3의 association이 형성되는 세 가지 경우
 
 1) bayesian network factorization을 통해 확률을 계산 
 
--  bayesian network factorization
+- chain rule of probability에 local markov assumption을 적용한 개념
+
+  -  chain rule of probability
+     -  $$ p(x_1, x_2, ..., x_n) = \[ \prod_i {p(x_i | x_{i-1}, x_{i-2}, ..., x_1)} \] $$
+  -  local markov assumption
+     -  DAG에서 노드 X($$x_i$$)는 부모노드($$pa_i$$)에게만 영향을 받음
+     -  자식 노드에게는 영향을 받지 않음
+
+  - <u>bayesian network factorization</u>
+    - $$ p(x_1, x_2, ..., x_n) = \[ \prod_i {p(x_i | pa_i)} \] $$
 
 2) 변수 통제(조건부 확률) 시 독립성 확인 
 
-1. Chain에 의한 non-causal association
-   - bayesian network factorization 
-     - $$p(x_1,x_2,x_3) = p(x_1) * p(x_2 | x_1) *  p(x_3|x_2)$$
+
+
+**각 association에 대한 독립성 확인 결과**
+
+1. **Chain에 의한 non-causal association**
+
+   * bayesian network factorization 
+     * $$p(x_1,x_2,x_3) = p(x_1) * p(x_2 | x_1) *  p(x_3|x_2)$$
+
    - x2 통제(조건부 확률)
      - $$p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)}$$(베이즈 정리)
      - $${p(x_1) * p(x_2|x_1) * p(x_3 | x_2) \over p(x_2)} = {p(x2, x_1) * p(x_3|x_2) \over p(x_2)} = {p(x_2, x_1) \over p(x_2)} * p(x_3|x_2) = p(x_1 | x_2) * p(x_3 | x_2)$$(분자에 bayesian network factorization에 의해 도출 된 식 대입, 베이즈 정리 적용)
      - $$\newcommand{\indep}{\perp \!\!\! \perp}
        x_1 \indep x_3 | x_2$$(x2를 통제하는 경우, x1과 x3가 독립이 됨) 
      - **즉, chain의 경우 중간에 위치한 노드(변수)를 통제하면 해당 non-causal association(x1 → x3)가 block 됨**
-2. Fork에 의한 non-causal association
+
+2. **Fork에 의한 non-causal association**
+
    - bayesian network factorization 
-     1. p(x1,x2,x3)=p(x2)∗p(x1|x2)∗p(x3|x2)
+     - $$ p(x_1,x_2,x_3) = p(x_2) * p(x_1 | x_2) *  p(x_3|x_2) $$
    - x2 통제(조건부 확률)
-     - p(x1,x3|x2)=p(x1,x2,x3)p(x2) (베이즈 정리)
-     - p(x2)∗p(x1|x2)∗p(x3|x2)p(x2)=p(x1,x2)∗p(x3|x2)p(x2)=p(x1,x2)p(x2)∗p(x3|x2)=p(x1|x2)∗p(x3|x2)
+     - $$ p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)} $$ (베이즈 정리)
+     - $$ {p(x_2) * p(x_1 | x_2) *  p(x_3|x_2) \over p(x_2)} = {p(x1, x_2) * p(x_3|x_2) \over p(x_2)} = {p(x_1, x_2) \over p(x_2)} * p(x_3|x_2) = p(x_1 | x_2) * p(x_3 | x_2) $$
        (분자에 bayesian network factorization에 의해 도출 된 식 대입, 베이즈 정리 적용)
-     - x1⊥⊥x3|x2(x2를 통제하는 경우, x1과 x3가 독립이 됨)
+     - \newcommand{\indep}{\perp \!\!\! \perp}
+       x_1 \indep x_3 | x_2$$(x2를 통제하는 경우, x1과 x3가 독립이 됨)
      - **즉, fork의 경우 confounder를 통제하면 해당 non-causal association(x1 → x3)가 block 됨**
-3. Immorality에 의한 non-causal association
+
+3. **Immorality에 의한 non-causal association**
+
    - bayesian network factorization
-     - p(x1,x2,x3)=p(x1)∗p(x3)∗p(x2|x1,x3)
+     - $$ p(x_1,x_2,x_3) = p(x_1) * p(x_3) *  p(x_2|x_1, x_3) $$
    - x2 통제(조건부 확률)
-     - p(x1,x3|x2)=p(x1,x2,x3)p(x2) (베이즈 정리)
-     - p(x1)∗p(x3)∗p(x2|x1,x3)p(x2) (분자에 위의 식 대입)
-     - x1 ⊥̸⊥x3|x2 (x2를 통제하는 경우, x1과 x2는 독립이 아님)
+     - $$ p(x_1, x_3 | x_2) = {p(x_1, x_2, x_3) \over p(x_2)} $$ (베이즈 정리)
+     - $$ { p(x_1) * p(x_3) *  p(x_2|x_1, x_3) \over p(x_2)} $$ (분자에 위의 식 대입)
+     - \newcommand{\indep}{\perp \!\!\! \perp}
+       x_1 \ \not\indep x_3 | x_2 $$ (x2를 통제하는 경우, x1과 x2는 독립이 아님)
    - x2에 상관없이 x1, x3의 확률 계산
-     - p(x1,x3)=∑x2p(x1,x3,x2)(marginalize)
-     - p(x1,x3)=∑x2p(x1,x3,x2)=∑x2p(x1)∗p(x3)∗p(x2|x1,x3)=p(x1)∗p(x3)∗∑x2p(x2|x1,x3)=p(x1)∗p(x3)∗1=p(x1)∗p(x3)
+     - $$ p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)} $$(marginalize)
+     - $$ p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)} = \sum_{x_2} {p(x_1) * p(x_3) *  p(x_2|x_1, x_3)} ={p(x_1) * p(x_3) * \sum_{x_2}   p(x_2|x_1, x_3)} = {p(x_1) * p(x_3) * 1 = {p(x_1) * p(x_3) $$
        (bayesian network factorization에 의해 도출 된 식 대입)
-     - x1⊥⊥x3 (x2를 통제하지 않는 경우, x1과 x3가 독립이 됨)
+     - \newcommand{\indep}{\perp \!\!\! \perp}
+       x_1 \indep x_3 $$ (x2를 통제하지 않는 경우, x1과 x3가 독립이 됨)
      - 즉, fork의 경우 colllider를 통제하지 않는 경우 이를 제외한 두 노드는 독립임
        - **collider를 통제하면 해당 non-causal association이 발생함(collider bias)**
