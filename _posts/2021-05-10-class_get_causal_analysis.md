@@ -72,7 +72,7 @@ cover: "/assets/l2m_cover.jpg"
 
 즉, 실제로 원인 변수와 결과 변수 간 인과 관계가 없더라도 collider를 통제하여 추정하면 원인 변수와 결과 변수 간에 종속관계가 있는 샘플만으로 영향을 추정하는 것이므로 상관성이 생기게 됩니다. 그리고 우리는 그 상관성을 인과 관계로 오해할 수 있기 때문에 collider는 통제하지 말아야 합니다.
 
-<p align="center"><img src = "/assets/works/class_get_causal_analysis/image2_2.png" width="65%" /><br>[그림3-2] collider bias에 대한 예시</p>
+<p align="center"><img src = "/assets/works/class_get_causal_analysis/image2_2.png" width="80%" /><br>[그림3-2] collider bias에 대한 예시</p>
 
 
 
