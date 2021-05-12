@@ -51,7 +51,7 @@ cover: "/assets/l2m_cover.jpg"
 
 
 
-<p align="center"><img src = "/assets/works/class_get_causal_analysis/image1_2.png" width="65%" /><br>[그림2-2] 교란 변수 때문에 애초에 두 그룹의 공정한 비교가 불가능합니다</p>
+<p align="center"><img src = "/assets/works/class_get_causal_analysis/image1_2.png" width="60%" /><br>[그림2-2] 교란 변수 때문에 애초에 두 그룹의 공정한 비교가 불가능합니다</p>
 
 * 애초에 게임에 애착이 많은 유저는 영웅/전설 획득 가능성이 높을 수 있으며, 플레이 변화가 증가할 가능성(게임을 열심히 함)도 높을 수 있습니다.
 * 게임에 대한 애착도가 영웅/전설 획득과 플레이 변화에 동시에 영향을 주기 때문에, 실제로 영웅/전설 획득과 플레이 변화 간에 인과 관계가 없더라도 "상관 관계"가 생길 수 있습니다.
