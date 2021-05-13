@@ -378,15 +378,13 @@ x1과 x3의 association이 형성되는 세 가지 경우
 
    <img src = "/assets/works/class_get_causal_analysis/image9_4.png" width="25%"/>
 
-   - $$x_2$$는 $$x_1$$과 $$x_3$$에 **영향을 줌** : x2는 x1과 x3의 Confounder
+   - $$x_2$$는 $$x_1$$과 $$x_3$$에 **영향을 줌** : $$x_2$$는 $$x_1$$과 $$x_3$$의 Confounder
 
 3. Imorality
 
    <img src = "/assets/works/class_get_causal_analysis/image9_5.png" width="25%"/>
 
-   - $$x_2$$는 $$x_1$$과 $$x_3$$의 **영향을 받음** : x2는 x1과 x3의 Collider
-
-
+   - $$x_2$$는 $$x_1$$과 $$x_3$$의 **영향을 받음** : $$x_2$$는 $$x_1$$과 $$x_3$$의 collider
 
 #### non-causal association의 영향을 제거(block)
 
@@ -452,7 +450,8 @@ x1과 x3의 association이 형성되는 세 가지 경우
        x_1 \ \not\indep x_3 | x_2 $$ (**x2를 통제하는 경우, x1과 x2는 독립이 아님**)
    - x2를 통제하지 않고 x1, x3의 독립성 확인
      - $$p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)}$$ (marginalize)
-     - $$ p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)} = \sum_{x_2} {p(x_1) * p(x_3) * p(x_2|x_1, x_3)} =p(x_1) * p(x_3) * \sum_{x_2} { p(x_2|x_1, x_3) } = p(x_1) * p(x_3) * 1 = p(x_1) * p(x_3)$$
+     - $$p(x_1,x_3) = \sum_{x_2} {p(x_1, x_3, x_2)}$$ 를 풀어쓰면_
+     - $$\sum_{x_2} {p(x_1) * p(x_3) * p(x_2|x_1, x_3)} =p(x_1) * p(x_3) * \sum_{x_2} { p(x_2|x_1, x_3) } = p(x_1) * p(x_3) * 1 = p(x_1) * p(x_3)$$
        (bayesian network factorization에 의해 도출 된 식 대입)
      - $$ \newcommand{\indep}{\perp \!\!\! \perp}
        x_1 \indep x_3 $$ (x2를 통제하지 않는 경우, x1과 x3가 독립이 됨)
