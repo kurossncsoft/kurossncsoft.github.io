@@ -196,9 +196,14 @@ GROUP BY customer
 
 ### 2-9. ETL 모니터링
 ETL 작업은 실행하는데 있어서 짧게는 수 분이내로 끝날 수도 있지만, 길게는 몇 시간까지 걸리는 경우도 있습니다. 이런 경우는 개발자가 몇 시간 동안 작업이 정상적으로 진행되는지 지속적으로 체크를 할 수 없기 때문에 모니터링 방법이 필요합니다. 모니터링 방법을 따로 둠으로서, 작업의 진행상황 등을 지속적으로 확인할 수도 있습니다. 대표적으로 Airflow를 사용하는 경우는 빌트인 되어있는 시각화 차트를 이용하여 확인이 가능하고, 따로 메일링 시스템을 두는 경우도 있습니다.
+  
+Airflow에서 제공하는 다양한 시각화 차트들을 예시로 가져와보았습니다. 먼저 왼쪽 사진은 Airflow에 접속하면 가장 먼저 볼 수 있는 **DAGs 탭** 입니다. 해당 화면을 통해 우리는 각각의 DAG가 현재 어떤 상태인지, 오류가 발생한 DAG는 없는지 등을 확인할 수 있습니다. 오른쪽 사진은 각 DAG를 이루고 있는 Task들의 상태를 보여주는 **Graph View** 입니다. 해당 차트에서는 만약 DAG가 작업 실패 상태로 처리가 되었다면 해당 DAG안의 어떤 Task로 인해 작업이 실패했는지를 한눈에 파악할 수 있습니다.
 
-예시 ) Airflow 차트(Graph View)
-![qz59mo2u68zhs8bgcuv0te41r39hrqap](/assets/works/etl_principles/airflow_graph_view.png)
+![qz59mo2u68zhs8bgcuv0te41r39hrqap](/assets/works/etl_principles/airflow_status_check.png)
+
+위의 두 화면에서는 전체적은 DAG와 Task의 상태를 알 수 있었다면, 아래의 두 차트는 조금 더 세부적인 정보들을 제공합니다. 왼쪽의 **Gantt Chart** 에서는 각각의 Task 당 얼마만큼의 시간이 소요되었는지를 보여줍니다. 비정상적으로 긴 러닝타입을 가지는 Task를 캐치할 수 있겠죠. 오른쪽의 **Task Tries** 차트는 일자별로 어떤 Task를 몇 회정도 시도했는지를 차트로 볼 수 있습니다. 해당 차트를 통해 주로 실패하여 Retry가 실행된 Task가 어떤 Task인지를 확인할 수 있습니다.
+
+![qz59mo2u68zhs8bgcuv0te41r39hrqap](/assets/works/etl_principles/airflow_detail_check.png)
 
 <br /> 
 
