@@ -76,10 +76,10 @@ ETL은 총 세 단계로 이루어져있습니다. 바로 추출(**E**xtract), �
 
 <br /> 
 
-아래는 멱등성이 보장되지 않는 경우의 상황입니다. ETL 프로세스가 첫번째 그림처럼 진행되던 중 예기치 못한 상황으로 인해 중단되는 경우 재실행했다고 가정해보죠. 그랬을 때 멱등성이 보장되지 않는다면, 두번째 그림과 같이 중단된 시점부터 다시 데이터가 적재될 것입니다. 이 경우, 데이터가 중복 적재되는 것은 물론 해당 ETL 프로세스로부터 원헸던 결과를 얻을 수 없게 되는 것이죠.
+아래는 멱등성이 보장되지 않는 경우의 상황입니다. ETL 프로세스가 왼쪽 그림처럼 진행되던 중 예기치 못한 상황으로 인해 중단되는 경우 재실행했다고 가정해보죠. 그랬을 때 멱등성이 보장되지 않는다면, 오른쪽 그림과 같이 중단된 시점부터 다시 데이터가 적재될 것입니다. 이 경우, 데이터가 중복 적재되는 것은 물론 해당 ETL 프로세스로부터 원헸던 결과를 얻을 수 없게 되는 것이죠.
 
-![l8n0acm62eiz799pd1we8a0td4129v22](/assets/works/etl_principles/example1.png)
-![2ic87vhwf0wjb1u3j8y9jhaq63gf3cpo](/assets/works/etl_principles/example2.png)
+<img src="../assets/works/etl_principles/example1.png" width="300px" height="200px">
+<img src="../assets/works/etl_principles/example2.png" width="300px" height="200px">
 
 <br /> 
 
