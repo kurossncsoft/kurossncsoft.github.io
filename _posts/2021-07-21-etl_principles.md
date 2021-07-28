@@ -35,7 +35,10 @@ _"수많은 팀에서 관리하는 구조화된 데이터와 구조화되지 않
 ### 1-2. ETL 프로세스
 ETL은 총 세 단계로 이루어져있습니다. 바로 추출(**E**xtract), 변환(**T**ransform), 적재(**L**oad) 단계 입니다. ETL이라는 약어 역시 각 단계의 첫 글자를 따와 만들어졌습니다.
 
-![idkzqprcs59z2fn0vsw88unw1yz972ym](/assets/works/etl_principles/etl_process.png "출처 - https://www.xplenty.com/blog/etl-data-warehousing-explained-etl-tool-basics/")
+![idkzqprcs59z2fn0vsw88unw1yz972ym](/assets/works/etl_principles/etl_process.png)
+<div style="color:grey;font-size:8pt;text-align:center;"><i>출처 - https://www.xplenty.com/blog/etl-data-warehousing-explained-etl-tool-basics/</i></div>
+
+<br /> 
 
 * 추출
 	* 다양한 소스들로부터 데이터를 추출합니다. 이 때 추출 대상들은 같은 데이터베이스일 수도, 다른 데이터 베이스일 수도 있습니다.
