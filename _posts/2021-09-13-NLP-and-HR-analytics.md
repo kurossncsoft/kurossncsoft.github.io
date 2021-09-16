@@ -5,8 +5,8 @@ date: 2021-09-13 18:00:00
 categories: Work
 author : DANBI
 cover: "/assets/nlp_free_image.jpg"
----
 
+---
 
 
 
@@ -16,6 +16,13 @@ cover: "/assets/nlp_free_image.jpg"
 
 
 
+<br />
+
+---
+
+<br /> 
+
+
 
 ## **자연어처리 과제와 모델, 학습 예시**
 
@@ -23,7 +30,7 @@ cover: "/assets/nlp_free_image.jpg"
 
 
 
-![nlp_and_hr_analytics_image1](\assets\works\nlp_and_hr_analytics\bert_tasks.png)
+![nlp_and_hr_analytics_image1](C:\Users\aitch25\Documents\GitHub\kurossncsoft.github.io\assets\works\nlp_and_hr_analytics\bert_tasks.png)
 
 - (a) Sentence Pair Classification Tasks 
   - MNLI (Multi-Genre Natural Language Inference) : 자연어추론 
@@ -142,6 +149,16 @@ cover: "/assets/nlp_free_image.jpg"
 
 
 
+<br />
+
+---
+
+<br /> 
+
+
+
+
+
 ## 자연어처리 과제와 응용
 
  지금까지 자연어처리 모델로 해결할 수 있는 과제들을 BERT에 언급된 목록을 활용해 열거해 보았다. 그렇다면 각각의 과제를 현업에는 어떻게 적용할 수 있을까? 아래 제시된 표를 통해 자연어처리의 HR Analytics관점에서의 활용점을 나열한다.
@@ -189,6 +206,12 @@ cover: "/assets/nlp_free_image.jpg"
 
  말 그대로 질의응답 기법을 활용해 지원자에게 채용 관련 실시간 Q&A 기능을 제공하거나, 실제 채용 프로세스에 접목하는 등의 효과를 기대할 수 있을 것이다. 실제로 M사와 W 외국 회사의 경우 NLP 기반 AI 인터뷰를 진행하고 있으며, 그들의 NLP 모델은 지원자의 의도, 문맥, 이해도 등을 파악하여 채용 데이터베이스에 자동으로 업데이트 하는 기능을 제공한다. 또한 지원자들의 이력서나 채팅 면접 시 발생된 지원자들의 특성을 요약해 어떤 직무에 적합할지를 판단해주는 기능을 갖고 있어 채용담당자들의 시간을 기하급수적으로 감축시킬 수 있다고 한다. 
 
+<br />
+
+---
+
+<br />
+
 
 
 ## 자연어 처리 기술을 이용한 HR Analytics 사례
@@ -222,9 +245,25 @@ cover: "/assets/nlp_free_image.jpg"
 
 
 
+<br />
+
+---
+
+<br />
+
+
+
 ## **마치며**
 
  본 포스팅을 통해 자연어처리 연구에서 해결하고자 하는 다양한 과제들과, 해당 과제들이 현업 및 서비스에 어떻게 활용되고 있는지를 확인해 보았다. 위에서 언급한 바와 같이 자연어처리는 인간의 언어를 다루는 기술로 언어가 포함된 모든 영역에 확장이 가능하며, 본 팀의 업무 분야인 HR Analytics도 자연어처리가 필요한 분야중 하나이다. 어떤 영역에 있어 자연어처리 기술은 이미 현업에 깊숙히 녹아들어 있으며, 아직 적용되지 않은 부분들에 있어서도 향후 활용될 여지가 많아 기술의 수요가 매우 높다고 생각된다. 이러한 이유로 본 포스팅에서는 자연어처리 연구에서 주로 관심을 갖고 있는 문제들과 해당 문제를 학습하기 위한 데이터, 또 실제 적용사례를 정리해보았다. 
+
+
+
+<br />
+
+---
+
+<br />
 
 
 
