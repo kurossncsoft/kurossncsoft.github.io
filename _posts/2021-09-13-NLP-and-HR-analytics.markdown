@@ -6,6 +6,7 @@ categories: Work
 author : DANBI
 cover: "/assets/nlp_free_image.jpg"
 
+
 ---
 
 
@@ -103,10 +104,10 @@ cover: "/assets/nlp_free_image.jpg"
 
  언어적 용인 가능성을 판별해주는 딥러닝 모델 역시 (b) 구조로 학습하게 되며, 입력 문장과 해당 문장이 언어적으로 용인이 가능한지 여부를 판별해주는 class label로 구성이 되어있다. 해당 문장은 CoLA 데이터셋의 예시이다.
 
-| 구분        | 설명                                                         |
-| :---------- | :----------------------------------------------------------- |
-| Sentence    | In which way is Sandy very anxious to see if the students will be able to solve the homework problem? |
-| Class label | acceptable / **unacceptable**                                |
+|    구분     |                             설명                             |
+| :---------: | :----------------------------------------------------------: |
+|  Sentence   | In which way is Sandy very anxious to see if the students will be able to solve the homework problem? |
+| Class label |                acceptable / **unacceptable**                 |
 
 
 
@@ -120,14 +121,14 @@ cover: "/assets/nlp_free_image.jpg"
 
  (c)는 아래와 같은 데이터셋을 학습하여 동작한다. 해당 데이터는 SQuAD v1.1에 해당하는 데이터로 Context와 Question을 입력으로 받고, Answer을 label로 하여 학습을 수행한다. 예시에서 나타나는 바와 같이, Question은 Context에 포함된 내용에 대한 질문으로 구성되어 있으며, Answer은 해당 질문에 대한 정답으로 구성된다. 
 
-| 구분       | 설명                                                         |
-| :--------- | :----------------------------------------------------------- |
-| Context    | Architecturally, the school has a Catholic character. Atop the Main Building's gold dome is a golden statue of the Virgin Mary. Immediately in front of the Main Building and facing it, is a copper statue of Christ with arms upraised with the legend "Venite Ad Me Omnes". Next to the Main Building is the Basilica of the Sacred Heart. Immediately behind the basilica is the Grotto, a Marian place of prayer and reflection. It is a replica of the grotto at Lourdes, France where the Virgin Mary reputedly appeared to Saint Bernadette Soubirous in 1858. At the end of the main drive (and in a direct line that connects through 3 statues and the Gold Dome), is a simple, modern stone statue of Mary. |
+|    구분    |                             설명                             |
+| :--------: | :----------------------------------------------------------: |
+|  Context   | Architecturally, the school has a Catholic character. Atop the Main Building's gold dome is a golden statue of the Virgin Mary. Immediately in front of the Main Building and facing it, is a copper statue of Christ with arms upraised with the legend "Venite Ad Me Omnes". Next to the Main Building is the Basilica of the Sacred Heart. Immediately behind the basilica is the Grotto, a Marian place of prayer and reflection. It is a replica of the grotto at Lourdes, France where the Virgin Mary reputedly appeared to Saint Bernadette Soubirous in 1858. At the end of the main drive (and in a direct line that connects through 3 statues and the Gold Dome), is a simple, modern stone statue of Mary. |
 | Question 1 | Where is the headquarters of the Congregation of the Holy Cross?(the Congregation of the Holy Cross의 본부는 어디에 있습니까?) |
-| Answer 1   | {"text": "Rome", "answer_start": 119}                        |
+|  Answer 1  |            {"text": "Rome", "answer_start": 119}             |
 | Qeustion 2 | What is the oldest structure at Notre Dame?(노트르담에서 가장 오래된 건축물은 무엇입니까?) |
-| Answer 2   | {"text": "Old College", "answer_start": 234}                 |
-| ...        | ...                                                          |
+|  Answer 2  |         {"text": "Old College", "answer_start": 234}         |
+|    ...     |                             ...                              |
 
 
 
@@ -142,10 +143,10 @@ cover: "/assets/nlp_free_image.jpg"
  마지막으로 개체명 인식을 위한 데이터셋은 아래와 같이 구성되어있다. BERT 논문에서 예로 들었던 CoNLL-2003 NER 데이터셋이며, sentence의 각 단어 (또는 token) 에 대한 label로 구성되어 학습된다. 여기에서 O는 outside of named entity로 개체명에 해당하지 않음을 의미하며, PER은 인명, LOC은 지역, ORG는 기관, MICS는 특정되지 않은 개체명을 의미한다. **
 **
 
-| 구분     | 설명  |         |        |      |      |         |         |      |      |
-| :------- | :---- | ------- | ------ | ---- | ---- | ------- | ------- | ---- | ---- |
-| Sentence | EU    | rejects | German | call | to   | boycott | British | lamb | .    |
-| Tagging  | B-ORG | O       | B-MISC | O    | O    | O       | B-MISC  | O    | O    |
+|   구분   |       |         |        | 설명 |      |         |         |      |      |
+| :------: | :---: | :-----: | :----: | :--: | :--: | :-----: | :-----: | :--: | :--: |
+| Sentence |  EU   | rejects | German | call |  to  | boycott | British | lamb |  .   |
+| Tagging  | B-ORG |    O    | B-MISC |  O   |  O   |    O    | B-MISC  |  O   |  O   |
 
 
 
@@ -224,22 +225,26 @@ cover: "/assets/nlp_free_image.jpg"
 
  우리가 활용한 감정분석 모델은 각 문장의 긍부정 여부를 [0, 1] 범주의 값으로 나타내는데 1에 가까울 수록 긍정, 0에 가까울 수록 부정을 의미한다. 우리는 긍부정 여부에 대한 임계값을 설정하여 긍부정 확률이 0.15 이하인 문장을 부정으로, 0.85 이상인 문장을 긍정으로 취급하였으며, 0.15~0.85에 해당하는 문장은 중도로 구분하였다. 이렇게 기준을 설정하고 등급에 따라 긍정 코멘트와 부정 코멘트 수치를 비교했을 때, 가장 역량 및 성과가 높은 1등급은 부정 코멘트의 수 대비 긍정 코멘트의 수가 약 46배 정도 많게 타나났다. 또한 해당 결과를 통해 평가자가 각 평가 등급의 차이를 얼마나 명확하게 인지하고 있는지를 수치로 확인해볼 수 있었다. 본 결과에서는 1등급과 2등급의 긍부정 비율 차이는 크지 않은 반면 2에서 3으로 내려가는 구간에서 해당 수치가 급격히 감소하였다. 각 등급의 차이는 동일하게 한 단계이나, 평가자는 체감상 1~2 등급의 차이를 2~3 등급의 그것과 다르게 생각한다고 추정된다. 본 주제와는 조금 다른 맥락이나, 해당 차이를 다른 방면에서 봤을 때도 마찬가지였다. 코멘트에 등장한 3-gram 명사 기준의 빈출 단어 유사도를 확인해 본 결과 역시 1~2등급 사이 유사도 보다 2~3등급 사이 단어 유사도가 더 낮게 나타났다. 이러한 결과는 향후 평가 등급 조정이나 등급별 보상 체계 등을 개선할 때 참고할 수 있다.
 
-| :----------------------------: | :--------------: |
-|           평가 등급            | (긍정/부정) 비율 |
-|               1                |      46.32       |
-|               2                |      34.73       |
-|               3                |      17.25       |
-|               4                |       1.28       |
-|               5                |       0.31       |
+| 평가 등급 | (긍정/부정) 비율 |
+| :-------: | :--------------: |
+|     1     |      46.32       |
+|     2     |      34.73       |
+|     3     |      17.25       |
+|     4     |       1.28       |
+|     5     |       0.31       |
+
+
 
  더 나아가 자연어 처리 기술을 이용하면 평가 코멘트를 요약하는데 활용할 수 있다. 상기 분석에서 익명화를 수행할 때, 우리는 3종류의 태그를 활용하였는데 이는 각각 EMP, CAPA, SKIL이다. 여기에서 EMP는 익명화를 수행할 때 필요한 태그이고, 다른 두 태그는 역량 또는 기술에 해당하는 태그이다. 역량 및 기술 태그를 활용하면 해당 문장이 어떤 역량 및 기술에 대한 코멘트인지를 확인할 수 있으며, 이를 활용하면 각 사원들의 장점과 역량들을 아래와 같이 정보화 할 수 있다. 
 
-| :----------------------------------------------------------: | :-----: | :----------: | :--------------: | :----: |
 |                             원문                             | 직원 ID | 역량 or 스킬 |   주요 키워드    | 긍부정 |
+| :----------------------------------------------------------: | :-----: | :----------: | :--------------: | :----: |
 | **직원1님(EMP)**은 **개발업무(SKIL)**에 있어 우수한 역량을 바탕으로 솔선수범 하는 모습을 보여주셨습니다. |  직원1  |   개발업무   | 우수한, 솔선수범 |  긍정  |
 | **직원2님(EMP)**은 원활한 **인간관계(CAPA)**를 바탕으로 동료들을 잘 다독여 주셨고, 그 결과 기한에 맞춰 작업을 완료할 수 있었습니다. |  직원2  |   인간관계   |      원활한      |  긍정  |
 | **직원3님(EMP)**은 새로운 **디자인을 고안하는 작업(SKIL)**에 있어 매우 창의적이고 독창적인 결과물을 만들어내십니다. |  직원3  | 디자인 고안  |  창의적, 도창적  |  긍정  |
 | (윗문장에 이어) 하지만 **보고서 작성(SKIL)**등의 업무에 있어서는 꼼꼼함이 필요합니다. |  직원3  | 보고서 작성  |      꼼꼼함      |  부정  |
+
+
 
 
 
@@ -273,4 +278,3 @@ cover: "/assets/nlp_free_image.jpg"
 4. 텍스티오 - https://www.codingworldnews.com/news/articleView.html?idxno=4166
 5. BERT - https://arxiv.org/abs/1810.04805
 6. AI 적용 HR 서비스 요약 - https://towardsdatascience.com/5-companies-that-are-revolutionizing-recruiting-using-artificial-intelligence-9a70986c7a7e
-
