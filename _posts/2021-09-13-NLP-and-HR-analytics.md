@@ -30,7 +30,7 @@ cover: "/assets/nlp_free_image.jpg"
 
 
 
-![nlp_and_hr_analytics_image1](C:\Users\aitch25\Documents\GitHub\kurossncsoft.github.io\assets\works\nlp_and_hr_analytics\bert_tasks.png)
+![nlp_and_hr_analytics_image1](/assets/works/nlp_and_hr_analytics/bert_tasks.png)
 
 - (a) Sentence Pair Classification Tasks 
   - MNLI (Multi-Genre Natural Language Inference) : 자연어추론 
