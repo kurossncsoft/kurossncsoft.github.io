@@ -1,11 +1,11 @@
-\---
+---
 layout: post
 title: "HR Analytics와 구조방정식"
 date: 2021-09-17 14:00:00
 categories: Study
 author : DANBI
 cover: "/assets/posts.jpg"
-\---
+---
 
 ## **HR Analytics와 구조방정식**
 
