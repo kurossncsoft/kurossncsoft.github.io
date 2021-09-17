@@ -15,7 +15,7 @@ cover: "/assets/posts.jpg"
 
 그런데 이러한 연구에서 사용되는 변수들은 모두 추상적인 개념들이다. 다시 말해서, 직접 관찰되거나 혹은 하나의 지표로 표현하기가 어렵다. 예를 들어, 연봉, 근무 연수, 직급, 성별 등은 명확하게 관찰되는 데 반해, '조직 몰입'. '직무 만족', '이직 의도'는 그렇지 못하다. 이러한 문제를 해결하기 위해 검사, 설문 문항을 통해 데이터를 측정하고 변수 간의 관계를 확인하게 된다. 아래 문항은 국내 한 연구에서 구성원의 조직 몰입도를 측정하기 위해 활용한 문항이다.
 
-![sem_01](/assets/study/hr_analytics_sem/sem_01.jpg)
+<img src = "/assets/study/hr_analytics_sem/sem_01.jpg" alt="sem_01" style="zoom: 70%;"/>
 
 출처. 안정원, 이순묵(2015), 조직몰입 3요소 모형의 내적 구조 검토 : 탐색적 구조방정식 모형(ESEM)의 적용, 한국심리학회지: 산업 및 조직: Vol. 28(4), 795-827.
 
@@ -95,7 +95,7 @@ cover: "/assets/posts.jpg"
 
 ![sem_11](/assets/study/hr_analytics_sem/sem_11.jpg)
 
-![sem_12](C:\Users\songjh7919\Documents\GitHub\danbi-ncsoft.github.io\assets\study\hr_analytics_sem\sem_12.jpg)
+![sem_12](/assets/study/hr_analytics_sem/sem_12.jpg)
 
 
 
@@ -103,7 +103,7 @@ cover: "/assets/posts.jpg"
 
 ![sem_13](/assets/study/hr_analytics_sem/sem_13.jpg)
 
-​	![sem_14](C:\Users\songjh7919\Documents\GitHub\danbi-ncsoft.github.io\assets\study\hr_analytics_sem\sem_14.jpg)
+​	![sem_14](/assets/study/hr_analytics_sem/sem_14.jpg)
 
 해당 모형은 매개모형으로 워라밸을 매개로 워라밸 지원 조직문화가 구성원의 안녕감과 우울감에 미치는 영향을 확인하고자 하는 연구다. 때문에 간접효과에 대해 검증해야 하는데 확률 분포를 정의할 수 없어서 부트스트래핑을 통해 유의성을 검증한다.
 
