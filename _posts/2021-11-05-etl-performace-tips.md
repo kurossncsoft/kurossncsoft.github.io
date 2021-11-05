@@ -36,6 +36,7 @@ SELECT p_date
 	, COUNT(DISTINCT column_name)
 FROM table_name
 WHERE p_date BETWEEN nc_to_char('20211006', 'yyyy-MM-dd') AND nc_to_char('20211008', 'yyyy-MM-dd')
+GROUP BY p_date
 ```
 위의 쿼리에서 `p_date`는 파티션 키 컬럼이고 `nc_to_char(a, b)`라는 함수는 a값을 b의 포맷에 맞게 변환시켜주는 UDF 입니다. 이 때, 해당 쿼리의 성능을 생각해본다면 해당 UDF 대신 다른 기본 제공 함수를 써야하겠죠. 이 경우, 동일한 기능을 하는 `DATE_FORMAT(a, b)` 라는 함수를 사용하여 아래처럼 쿼리를 수정할 수 있습니다. 
 
@@ -116,6 +117,44 @@ ON a.condition = b.condition
 ```
 
 <br /> 
+
+### 1-4. SELECT 사용 시 고려사항
+SELECT 절에서도 성능을 위해서 고려해야 하는 부분이 있습니다. 바로 필요한 컬럼만을 가져와서 사용하게 하는 것이죠. ETL에서 사용하는 테이블들은 대부분 대규모의 테이블입니다. 많게는 수 십개의 컬럼을 가지는 테이블도 있죠. 이렇게 많은 갯수의 컬럼들로 이루어져 있을 때 `SELECT *` 대신 `SELECT a, b, c`와 같이 필요한 컬럼만을 명시하여 사용하는 것이 훨씬 좋습니다.
+
+특히 Parquet 형식의 데이터의 경우는 컬럼 단위로 파일이 적재됩니다. 즉, 컬럼을 명시하지 않으면 모든 데이터를 불러와서 사용해야 하지만 `SELECT` 절에서 컬럼명을 명시해주는 것만으로도 필요한 파일만을 불러와 사용할 수 있게 되는 것입니다.
+
+```sql
+SELECT a.column_name
+	, b.column_name
+FROM (
+	SELECT *
+	FROM a
+	WHERE partition_column = 'a_value'
+) a
+LEFT OUTER JOIN (
+	SELECT *
+	FROM b
+	WHERE partition_column = 'b_value'
+) b
+ON a.condition = b.condition
+```
+앞서 사용한 쿼리입니다. 중접 SELECT 문을 사용하여 `JOIN` 연산 전에 파티션 필터를 거치기 때문에 원래의 쿼리보다 성능은 향상되었지만 여전히 중첩 SELECT 문 안에서는 `*`를 통해 모든 컬럼을 불러오고 있는 상황입니다. 이 경우 필요한 컬럼만을 `SELECT` 해오도록 아래와 같이 수정한다면 성능이 훨씬 향상될 것입니다.
+
+```sql
+SELECT a.column_name
+	, b.column_name
+FROM (
+	SELECT column_name, condition
+	FROM a
+	WHERE partition_column = 'a_value'
+) a
+LEFT OUTER JOIN (
+	SELECT column_name, condition
+	FROM b
+	WHERE partition_column = 'b_value'
+) b
+ON a.condition = b.condition
+```
 
 ---
 
