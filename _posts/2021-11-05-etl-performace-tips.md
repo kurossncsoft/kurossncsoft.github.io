@@ -33,7 +33,7 @@ Partitions Pruning이 무엇이길래 성능에 영향을 끼치는 것일까요
 따라서, 최대한 조건 절 내에서는 사용자 정의 함수의 사용을 피하고 제공되는 기본 함수를 사용해야 합니다.
 ```sql
 SELECT p_date
-	   , COUNT(DISTINCT column_name)
+	, COUNT(DISTINCT column_name)
 FROM table_name
 WHERE p_date BETWEEN nc_to_char('20211006', 'yyyy-MM-dd') AND nc_to_char('20211008', 'yyyy-MM-dd')
 ```
@@ -41,7 +41,7 @@ WHERE p_date BETWEEN nc_to_char('20211006', 'yyyy-MM-dd') AND nc_to_char('202110
 
 ```sql
 SELECT p_date
-	   , COUNT(DISTINCT column_name)
+	, COUNT(DISTINCT column_name)
 FROM table_name
 WHERE p_date BETWEEN DATE_FORMAT('20211006', 'yyyy-MM-dd') AND DATE_FORMAT('20211008', 'yyyy-MM-dd')
 ```
@@ -52,17 +52,17 @@ WHERE p_date BETWEEN DATE_FORMAT('20211006', 'yyyy-MM-dd') AND DATE_FORMAT('2021
 `COUNT(DISTINCT 컬럼명)` 함수는 컬럼 내 중복을 제외한 데이터의 건수를 제외하기 위해 사용합니다. 이 때, 전체 데이터에서 중복이 제거된 건수를 계산해야 하므로 단 하나의 리듀스 테스크가 해당 작업을 맡아서 처리하게 되죠. 즉, 데이터의 건수가 얼마나 많은지와는 상관없이 1개의 리듀스 테스크만이 할당되게 됩니다. 이 경우, 하둡의 장점인 분산처리의 이점을 전혀 활용하지 못하게 됩니다. 
 ```sql
 SELECT p_date
-	   , COUNT(DISTINCT column_name)
+	, COUNT(DISTINCT column_name)
 FROM table_name
 WHERE p_date BETWEEN DATE_FORMAT('20211006', 'yyyy-MM-dd') AND DATE_FORMAT('20211008', 'yyyy-MM-dd')
 ```
 위의 예시 쿼리는 설명한 것처럼 `COUNT` 함수 안에서 `DISTINCT` 작업이 이루어지는 형태이기 때문에 단 1개의 리듀서만을 할당 받게 됩니다. 이를 방지하기 위해서 아래처럼 쿼리를 수정할 수 있습니다.
 ```sql
 SELECT p_date
-	   , COUNT(column_name)
+	, COUNT(column_name)
 FROM (
 	SELECT p_date
-		   , column_name
+	    , column_name
 	FROM table_name
 	WHERE p_date BETWEEN DATE_FORMAT('20211006', 'yyyy-MM-dd') AND DATE_FORMAT('20211008', 'yyyy-MM-dd')
 	GROUP BY p_date, column_name
@@ -81,7 +81,7 @@ HiveQL에서 조인을 사용할 때는 몇 가지 고려해야 할 사항들이
 하지만, 때로는 쿼리의 가독성 측면에서 아니면 다른 이유로 가장 큰 테이블을 쿼리의 마지막에 위치시키지 못하는 경우가 있습니다. 이럴 때는 다음과 같이 처리 가능합니다.
 ```sql
 SELECT /*+STREAMTABLE(a)*/
-	   a.*, b.*
+	a.*, b.*
 FROM a
 JOIN b ON (a.column_name = b.column_name)
 WHERE a.column_name IS NOT NULL
@@ -92,7 +92,7 @@ WHERE a.column_name IS NOT NULL
 
 ```sql
 SELECT a.column_name
-	   , b.column_name
+	, b.column_name
 FROM a
 LEFT OUTER JOIN b ON (a.condition = b.condition)
 WHERE a.partition_column = 'a_value'
@@ -101,7 +101,7 @@ WHERE a.partition_column = 'a_value'
 이 때, 아래 쿼리와 같이 모든 조인에서 **중첩 SELECT 문**을 사용하여 파티션 필터를 사용하도록 만들 수 있습니다.
 ```sql
 SELECT a.column_name
-	   , b.column_name
+	, b.column_name
 FROM (
 	SELECT *
 	FROM a
@@ -262,7 +262,7 @@ ETL 작업에서 스케줄링은 매우 중요한 역할을 합니다. 스케줄
 <br /> 
 
 ## Appendix.
-* https://danischnider.wordpress.com/2017/07/23/10-tips-to-improve-etl-performance/
-* https://dataintegrationinfo.com/improve-etl-performance/
-* https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/partition-pruning.html#GUID-E677C85E-C5E3-4927-B3DF-684007A7B05D
-* https://www.sqlshack.com/introduction-to-nested-loop-joins-in-sql-server/
+* [https://danischnider.wordpress.com/2017/07/23/10-tips-to-improve-etl-performance/](https://danischnider.wordpress.com/2017/07/23/10-tips-to-improve-etl-performance/)
+* [https://dataintegrationinfo.com/improve-etl-performance/](https://dataintegrationinfo.com/improve-etl-performance/)
+* [https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/partition-pruning.html#GUID-E677C85E-C5E3-4927-B3DF-684007A7B05D](https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/partition-pruning.html#GUID-E677C85E-C5E3-4927-B3DF-684007A7B05D)
+* [https://www.sqlshack.com/introduction-to-nested-loop-joins-in-sql-server/](https://www.sqlshack.com/introduction-to-nested-loop-joins-in-sql-server/)
