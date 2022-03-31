@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "직장인 익명 게시판을 통해 본 재택근무"
-date: 2022-03-31 07:00:00
+date: 2022-03-30 07:00:00
 categories: Works
 author : DANBI
 cover: "/assets/title2.jpg"
