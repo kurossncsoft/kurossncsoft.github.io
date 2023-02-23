@@ -27,7 +27,7 @@ cover:  "/assets/code.jpg"
 
  만약 A씨의 PC로부터 새벽 2시에 쉘 스크립트를 통하여 전사 직원의 계좌 정보에 접근한 로그가 발생하였다면 이는 그의 평소 행동 패턴과는 매우 상이하다고 판단할 수 있을 것이다. A씨의 행동은 그 자신의 평소 패턴으로부터도 떨어져 있을 뿐 아니라 그가 속해 있는 인사팀의 일반적인 행동 범위로부터도 벗어났다는 점에서 상당히 의심스럽다.
 
-![image_1](https://kurossncsoft.github.io/assets/works/threat_detection/image_1.png)
+![image_1](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_1.png)
 
 
 
@@ -47,9 +47,9 @@ cover:  "/assets/code.jpg"
 
  이번 분석에서 정상 상태 정의를 위한 방법으로 Doc2Vec을 선택한 것은 이 특징 때문이다. 주제 및 내용이 유사한 문서들이 비슷한 벡터로 변환된다면, 각 사용자의 PC로부터 발생한 시스템 이벤트 로그의 집합(시퀀스)를 Doc2Vec으로 변환할 경우에도 사용자에 따라 벡터들이 비슷하게 생성될 것이다. 
 
-![image_2](https://kurossncsoft.github.io/assets/works/threat_detection/image_2.png)
+![image_2](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_2.png)
 
- 앞선 A씨의 PC에서 발생한 시스템 이벤트의 로그들을 모아 하루치 씩 Doc2Vec에 적용해서 벡터들을 생성했다고 해 보자. A씨의 행동 패턴에 큰 변화가 없었다면 7/1의 로그 시퀀스를 구성하는 이벤트 로그의 분포와 7/2의 분포는 유사할 것이므로, 7/1의 벡터와 7/2의 벡터는 좌표 공간 상에서 비슷한 곳에 위치하게 될 것이다. 그리고 로그 데이터가 충분히 많고 정밀하다면 A씨의 옆 팀 동료인 B씨의 로그 시퀀스 벡터는 A씨와 구분 가능할 정도로 떨어진 공간 상에 배치될 것이다. 만약 일정 기간에 걸쳐 각 사용자의 시간별 또는 일별 로그 시퀀스 벡터들을 생성해서 그들이 일정 크기의 클러스터를 구성한다면, 이후 해당 클러스터로부터 크게 떨어진 행동 로그 시퀀스가 발생했을 때 이를 위협 가능성이 존재하는 행위로써 탐지할 수 있을 것이다.
+ 앞선 A씨의 PC에서 발생한 시스템 이벤트의 로그들을 모아 하루치 씩 Doc2Vec에 적용해서 벡터들을 생성했다고 해 보자. A씨의 행동 패턴에 큰 변화가 없었다면 7월 1일의 로그 시퀀스를 구성하는 이벤트 로그의 분포와 7월 2일의 분포는 유사할 것이므로, 7월 1일의 벡터와 7월 2일의 벡터는 좌표 공간 상에서 비슷한 곳에 위치하게 될 것이다. 그리고 로그 데이터가 충분히 많고 정밀하다면 A씨의 옆 팀 동료인 B씨의 로그 시퀀스 벡터는 A씨와 구분 가능할 정도로 떨어진 공간 상에 배치될 것이다. 만약 일정 기간에 걸쳐 각 사용자의 시간별 또는 일별 로그 시퀀스 벡터들을 생성해서 그들이 일정 크기의 클러스터를 구성한다면, 이후 해당 클러스터로부터 크게 떨어진 행동 로그 시퀀스가 발생했을 때 이를 위협 가능성이 존재하는 행위로써 탐지할 수 있을 것이다.
 
  여기까지 해서 방법론에 대한 개괄 설명은 끝났다. 다음부터는 실제 데이터를 사용해서 어떤 식으로 분석을 진행하였고 그 결과가 어떻게 나왔는지 보여 드리고자 한다.
 
@@ -65,7 +65,7 @@ cover:  "/assets/code.jpg"
 
  이렇게 전처리를 마친 로그 시퀀스를 문서로, 해당 로그 시퀀스가 발생한 시간대 혹은 날짜를 문서 ID로 설정하여 Doc2Vec에 적용하여 30차원의 벡터로 변환하였다. 그리고 변환된 각 벡터가 발생한 PC의 ID를 라벨로 붙여 앞서 가정했던 것처럼 벡터들이 사용자의 행동 정보를 잘 포함하고 있는지 확인하기 위한 검증을 진행했다.
 
-![image_3](https://kurossncsoft.github.io/assets/works/threat_detection/image_3.png)
+![image_3](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_3.png)
 
 
 
@@ -81,17 +81,17 @@ cover:  "/assets/code.jpg"
 
  먼저 전반기 데이터를 사용해 시간대별 로그 시퀀스를 생성한 결과는 다음과 같다. 점의 색깔은 각 로그 시퀀스가 발생한 PC의 사용자를 의미하는데, 각 사용자의 벡터들이 클러스터 형태로 분포되는 것을 확인할 수 있다. 
 
-![image_4](https://kurossncsoft.github.io/assets/works/threat_detection/image_4.png)
+![image_4](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_4.png)
 
  일별 로그 시퀀스를 생성한 후반기의 결과도 비슷하다. 다만 시간대별 결과에 비해서 생성된 포인트의 개수가 적어 클러스터 간 거리가 더 떨어지는 형태로 나타남을 알 수 있다.
 
-![image_5](https://kurossncsoft.github.io/assets/works/threat_detection/image_5.png)
+![image_5](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_5.png)
 
  기간 변동에 따른 차이는 있었을까? 시간이 경과하여도 로그 수집에 참가한 대부분의 사용자들의 벡터들은 비슷한 공간 상에 mapping되었다. 다만, 전반기에서는 User 13, 후반기에서는 User 12와 User 13의 결과에서 학습 기간 벡터와 평가 기간 벡터의 영역이 비슷하게 위치하고는 있으나 겹치는 부분은 거의 없는 것으로 나타났다.  
 
-![image_6](https://kurossncsoft.github.io/assets/works/threat_detection/image_6.png)
+![image_6](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_6.png)
 
-![image_7](https://kurossncsoft.github.io/assets/works/threat_detection/image_7.png)
+![image_7](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_7.png)
 
 
 
@@ -103,17 +103,17 @@ cover:  "/assets/code.jpg"
 
  왜 한 사람의 PC에서만 이런 현상이 나타난 것일까? 이 질문에 대한 답을 구하기 위해 User 13과의 인터뷰를 수행해 보았다. 그에 따르면 User 13은 두 대의 PC를 사용하여 작업을 하는데, 학습 기간에는 보안 솔루션이 탑재된 PC를 주로 사용하였던 반면 평가 기간에는 솔루션이 설치되지 않은 다른 PC를 중점적으로 사용했다는 것을 알 수 있었다. 즉, 학습기간의 행동 패턴과 평가기간의 행동 패턴이 변화함에 따라 이러한 결과가 나타났을 것으로 예상해 볼 수 있었다.
 
-![image_8](https://kurossncsoft.github.io/assets/works/threat_detection/image_8.png)
+![image_8](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_8.png)
 
  후반기의 일별 로그 시퀀스 벡터로 학습시킨 분류 모델들의 성능도 전반기와 비슷하였다. Logistic Regression의 Macro F1-Measure는 0.82, Random Forest는 0.81이었으며, 여기에서는 User 12의 로그만 대부분 오분류되는 현상이 발생하였다. User 12에게도 동일한 인터뷰를 진행해 본 결과, 9월 말부터 보안 솔루션이 설치되지 않은 PC를 주로 사용하는 업무를 수행했다는 것을 알 수 있었다.
 
-![image_9](https://kurossncsoft.github.io/assets/works/threat_detection/image_9.png)
+![image_9](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_9.png)
 
  두 번의 분류 모델링과 관계자 인터뷰를 통해 사용자의 업무 방식 변화가 벡터화된 로그 시퀀스에 반영된 것이 오분류의 원인일 것으로 추정할 수 있었다. 이 추정에 대한 검증을 위해 후반기의 오분류 당사자였던 User 12의 인터뷰 내용을 활용해보기로 했다. User 12는 업무 방식의 변화가 9월 말에 발생했다고 말했다. 그렇다면 후반기 모델의 학습기간을 9월 중순까지 설정하고 평가기간을 9월 하순으로 두었을 경우, User12의 로그 시퀀스 벡터에 대한 분류 성능의 정확도는 어떻게 변화할 것인가?
 
  그 결과는 다음과 같다. 해당 기간에 대한 전체적인 분류 모델 두개의 성능이 Macro F1-Measure 기준 0.93~0.95로 상승하였고, 관심의 대상이었던 User12의 7일간의 로그 시퀀스 벡터 중 4개를 정확히 분류하였다. 특히 전체 평가기간 중 9월 24일부터 27일까지의 나흘 간의 데이터를 정확히 분류하고 이후 사흘(9월 28일~30일)을 오분류 하였는데, 이는 9월 말에 업무 방식이 변화했다는 사용자의 응답 내용과 일치하는 결과라고 할 수 있다.
 
-![image_10](https://kurossncsoft.github.io/assets/works/threat_detection/image_10.png)
+![image_10](https://danbi-ncsoft.github.io/assets/works/threat_detection/image_10.png)
 
 
 

@@ -342,6 +342,7 @@ permalink: /about/
           <p>데이터 분석가</p>
         </div>
       </div>
+      
       <div class="col-md-4 col-sm-6 col-md-offset-2">
         <div class="single-profile-bottom wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
           <div class="media">
@@ -380,7 +381,70 @@ permalink: /about/
           <p>데이터 분석가</p>
         </div>
       </div>
-    </div>  
+      <div class="col-md-4 col-sm-6 col-md-offset-2">
+        <div class="single-profile-bottom wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="media">
+    	      <div class="pull-left">
+    		      <img class="media-object" src="/assets/about_us/images/ini_bih.PNG" alt="">
+    	      </div>
+    		    <div class="media-body">
+    			    <h4>방일한</h4>
+    			    <h5>Analysis&Modeling Team</h5>
+    			    <ul class="tag clearfix">
+    				    <li class="btn">Analyst</li>
+    			    </ul>              
+    		    </div>
+          </div>
+          <p>데이터 분석가</p>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="row clearfix">
+    
+       <div class="col-md-4 col-sm-6">
+        <div class="single-profile-bottom wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="media">
+    	      <div class="pull-left">
+    		      <img class="media-object" src="/assets/about_us/images/ini_sll.png " alt="">
+    	      </div>
+    		    <div class="media-body">
+    			    <h4>이소린</h4>
+    			    <h5>Analysis&Modeling Team</h5>
+    			    <ul class="tag clearfix">
+    				    <li class="btn">Analyst</li>
+    			    </ul>              
+    		    </div>
+          </div>
+          <p>데이터 분석가</p>
+        </div>
+      </div>
+
+	  <div class="col-md-4 col-sm-6 col-md-offset-2">
+        <div class="single-profile-bottom wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="media">
+    	      <div class="pull-left">
+    		      <img class="media-object" src="/assets/about_us/images/ini_rhk.png " alt="">
+    	      </div>
+    		    <div class="media-body">
+    			    <h4>권력환</h4>
+    			    <h5>Analysis&Modeling Team</h5>
+    			    <ul class="tag clearfix">
+    				    <li class="btn">Analyst</li>
+    			    </ul>              
+    		    </div>
+          </div>
+          <p>데이터 분석가</p>
+        </div>
+      </div>
+	</div>
+    <br><br>
+    
+
+
+​    
+​    
+​    
 
   </div> <!-- team -->
 
@@ -490,10 +554,10 @@ permalink: /about/
         <div class="single-profile-bottom wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
           <div class="media">
     	      <div class="pull-left">
-    		      <img class="media-object" src="/assets/about_us/images/ini_cwm.png " alt="">
+    		      <img class="media-object" src="/assets/about_us/images/ini_jyk2.png" alt="">
     	      </div>
     		    <div class="media-body">
-    			    <h4>조원민</h4>
+    			    <h4>김재영</h4>
     			    <h5>Model Engineering Team</h5>
     			    <ul class="tag clearfix">
     				    <li class="btn">Developer</li>
@@ -542,6 +606,24 @@ permalink: /about/
           <p>데이터 엔지니어</p>
         </div>
       </div>
+      
+      <div class="col-md-4 col-sm-6 col-md-offset-2">
+        <div class="single-profile-bottom wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="media">
+    	      <div class="pull-left">
+    		      <img class="media-object" src="/assets/about_us/images/ini_hym.png " alt="">
+    	      </div>
+    		    <div class="media-body">
+    			    <h4>홍용만</h4>
+    			    <h5>Model Engineering Team</h5>
+    			    <ul class="tag clearfix">
+    				    <li class="btn">Developer</li>
+    			    </ul>              
+    		    </div>
+          </div>
+          <p>백엔드 개발자</p>
+        </div>
+      </div> 
     </div>
 
   </div> <!-- team -->

@@ -1,7 +1,7 @@
 ---
 
   layout: post
-  title:  "대량의 게임 데이터를 임베딩 해보자!"
+  title:  "Transformer를 이용해 대량의 게임 데이터를 임베딩 해보자!"
   date:   2021-04-13 09:43:00
   categories: Works
   author : DANBI
@@ -9,14 +9,14 @@
 
 ---
 
-  
 
-  ## Introduction
+
+## Introduction
 
   NCSOFT Data Center에는 대량의 로그 데이터가 쌓여있습니다. 이를 활용해 Data Center의 분석가들은 다양한 주제의 분석 목표를 설정하고 인사이트를 도출하고 모델을 생성합니다. 이렇게 진행되고 있는 프로젝트들의 대부분은 다양한 종류의 로그 데이터 중 유저 행동 로그를 사용하여 주로 진행됩니다. 그렇다면, 많은 분석가들이 사용하는 유저 행동 로그 데이터를 그 특징과 정보를 잘 함축시킬 수 있게 임베딩 해 놓는다면 여러 프로젝트에서 분석하고 모델링하는데 좋지 않을까? 라는 생각에서 이 글은 출발하게 되었습니다.
   기본적으로 로그 데이터는 Sequential Data입니다. 시간에 따라 순차적으로 쌓이는 데이터이죠. 그렇다면 임베딩을 위하여 우선적으로 생각해볼 수 있는건 순차적인 데이터를 처리하는 시계열 분석 방법(ARIMA, 지수평활법) 혹은 RNN/LSTM 기반의 딥러닝 모델들이 있을 것입니다. Sequence Autoencoder도 그 중 하나가 될 수 있겠네요. 하지만 이번 시간에는 대량의 로그 데이터를 사용하다보니 전통적인 통계적 방법론보다는 대량의 데이터를 처리하는데 강점을 가진 딥러닝에 집중해보려 합니다.     
 
-  ## Why Transformer? 
+## Why Transformer?
 
  유저의 행동 로그 데이터를 자세히 살펴보면 정말 다양한 종류(게임 접속, 맵 이동, 아이템 획득, 게임머니 증가/감소 등)가 있습니다. 그렇기에 처음 시도한 방법은 모든 로그 데이터를 사용하기보다는 유저의 지역 이동 (ex) A지역 1층 → A지역 2층 → ...) 로그만을 이용하여 유저별로 임베딩하는 것이었습니다. 임베딩하기 위해서 시도했던 알고리즘은 LSTM 기반의 Seq2Seq-Autoencoder 입니다. Seq2Seq-Autoencoder 를 이용하여 추출한 임베딩 벡터를 사용하여 다른 프로젝트에 적용하였을 때, 기대한만큼의 좋은 성능을 나타냄을 확인할 수 있었습니다. 다만, LSTM 기반의 Seq2Seq-Autoencoder를 사용하니 다음과 같은 문제가 발생하였습니다. 
 
@@ -37,17 +37,20 @@
 
    
 
-  ## Transformer - Autoencoder
+## Transformer-Autoencoder
 
-   0. #### Transformer - Autoencdoer Architecture
+#### 0. Transformer-Autoencoder Architecture
+
+
 
   
 
 <p align="center">
-<img src="/assets/works/transformer\image1.png" style="width:10in" />
+<img src="/assets/works/transformer\image1.png" style="width:8in" />
     <br>
     출처: https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225
  </p>
+
 
 
 
@@ -56,8 +59,7 @@
 
   
 
-
-  1. #### Input
+#### 1. Input
 
   Transformer - Autoencoder 구조의 입력(출력)으로는 Action Code(유저가 어떤 행동을 취했는지) + Context Code(Action Code를 더욱 세분화한 카테고리) + Zone Code(유저가 어떤 지역에서 행동을 했는지) , 이 3가지 Feature를 이용하여 데이터를 생성하고 사전(Dictionary)을 구축하였습니다. 당연히 위에서 시도한, 지역 이동 임베딩 데이터보다는 사전의 크기가 무척 커졌습니다. 지역 이동 데이터만을 사용하여 학습할 수도 있지만, Transformer 모델 크기에 비해 Dictionary의 크기가 상대적으로 작아 다른 Feature들도 같이 사용하면 더 나은 학습 효과를 얻을 것으로 생각했습니다. 이제 이렇게 입력을 넣는다면 각 사용자가 어떤 지역에서 어떤 행동을 하였는지에 대한 순차적인 정보를 내포하는 임베딩 벡터가 추출되겠죠? Feature들의 예시를 살펴보면 다음과 같습니다. 
 
@@ -75,9 +77,7 @@
 
 ​          캐릭터 2 =  [''**게임머니감소 _ 혈맹기부 _ A지역''** , ''**아이템증가 _ 드랍아이템획득 _B지역''** ,  ''**아이템증가 _ 드랍아이템획득 _ A지역 3층''** , ...  ]
 
-  
-
-   2. #### Training Time
+#### 2. Training Time
 
   Hyperparameter(인코더 레이어 층, Feed-Forward Layer의 Node 개수 등)에 따라 학습 시간은 천차만별이기에, NVIDIA-GPU를 사용하였을 때의 학습 시간 감소효과 정도만 소개하려고 합니다.
   LSTM 기반의 Seq2Seq-Autoencoder의 경우 Only CPU만을 사용하여 학습한 것과  GPU(1개)를 사용하여 학습한 것을 비교하였을 때 학습 시간 감소가 23%정도(Epoch당)밖에 줄어들진 않았지만, Transformer의 경우 1epoch당 Only CPU만 사용했을 경우 40분(Epoch당) 에서 10분(Epoch당)으로 줄어들었습니다. 거의 75%의 감소 효과를 이루어낸 것이죠! 이런 차이가 나타난 이유는 아래 그림을 통해서 설명할 수 있을 것 같습니다. 
@@ -87,7 +87,7 @@
 ​                                                                                                                               
 
 <p align="center">
-<img src="/assets/works/transformer\image2.png" style="width:10in" />
+<img src="/assets/works/transformer\image2.png" style="width:8in" />
     <br>
     출처: https://20chally.tistory.com/222
  </p>
@@ -100,11 +100,10 @@
 
 
 
+
   'Attention is all you need' 논문에서 나온 계산 복잡도 부분을 뽑아왔습니다. 우선 레이어당 총 계산 복잡도는 n < d인 경우 self-attention이 더 적은 계산 복잡도를 가집니다. (그리고 대부분의 경우 n < d 입니다.) 그리고 GPU를 이용한 병렬 계산을 수행하기 위한 sequential operation의 최소수는 rnn만 O(n)의 복잡도를 가집니다. 즉, GPU 사용을 위해 얻을 수 있는 이득은 Self-Attention이 훨씬 큰 것입니다. 추가적으로 NLP Task에서 대부분의 경우 한 문장에서 단어의 개수는 모델의 dimension에 비해 월등히 작기 때문에 엄청난 계산적 이득을 얻는다고 볼 수 있는 것입니다. (여담으로, 필자는 Transformer 구조를 구현한데 있어서는 Tensorflow 보다는 Pytorch를 더 권장합니다. NLP에서 활용되는 모델들(Transformer, BERT, XLNET 등)은 아무래도 Huggingface처럼 대부분 Pytorch로 구현이 되어있는 라이브러리가 많다보니 학습하는데 있어 정신 건강에 이롭습니다. 더욱이 GPU는 잘 사용하길 바랍니다. 1개만 사용하지 말고 Multi-Gpu로 텐서 분산처리를 꼭 활용하시길.. 안 그렇다면 학습이 너무 오래 걸려 일 못하는 직원이 될 수도 있습니다... )
 
-
-
-   3. #### 학습결과
+#### 3. 학습결과
 
   Transformer - Autoencoder는 비지도 학습이다보니 어떻게 성능을 평가할지에 대해서는 고민이 좀 더 필요합니다. 물론 다른 Downstream Task 모델의 Input으로 넣어 정확도나 F1-Score 등을 계산할 수는 있지만 이는 Task의 목적이나 모델의 구조에 따라 다르기 때문에 좀 더 정성적으로 평가할 수 있는 기준이 있으면 좋을 것 같습니다. 학습이 잘 되었는지를 확인하기 위해 Test Data에 대해서는 두가지 방법을 적용하였습니다.
 
@@ -116,9 +115,11 @@
 
 
 <p align="center">
-<img src="/assets/works/transformer\image3.png" style="width:10in" />
+<img src="/assets/works/transformer\image3.png" style="width:6in" />
     <br>
     출처 : https://nlpinkorean.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+
+
 
  </p>
 
@@ -134,7 +135,9 @@
     </p>
 
 
- 
+
+
+
 
  먼저, 사용한 모델의 구조와 함께 Test Data를 Input으로 넣었을 때, Output이 어떻게 나오는지를 확인하였습니다. (Output의 경우 <eos> 토큰이 나올때까지 반복적으로 예측을 합니다. ) 다행히도 Input과 output이 거의 동일하게 나오는 것을 확인할 수 있었습니다. 실제로 Test Data 셋 중 90% 이상의 경우 Input과 Output이 동일하게 나오는 것을 확인할 수 있었습니다. 지면 관계상, 다양한 경우를 보여 드리진 못하지만 대부분의 Test Data 셋에서 Context Vector가 입력 시퀀스를 다시 잘 생성해내는 것을 확인할 수 있다고 말씀드릴 수 있습니다. 
 
@@ -145,13 +148,15 @@
     </p>
 
 
- 
+
+
+
 
 ​    위의 두 그래프는 Test data를 모델에 넣었을 때, attention score 를 시각화한 결과입니다. x축은 test data의 sequence(130개)를 나타내고, y축은 test data로 encoding한 후 decoding한 문장 Sequence(131개 - <sos> 토큰까지) 결과입니다. (위의 번역 모델의 그래프와는 축이 반대입니다) 그리고 입출력간의 attention score를 위의 번역 모델처럼 그래프로 나타내 보았습니다. 위에서 설명했듯이, decoder layer 여러 개에 embedding vector를 넣었기 때문에 각각의 decoder layer마다 attention score가 나옴을 확인할 수 있습니다. 첫번째 그래프는 첫번째 decoder layer의 attention score, 두번째 그래프는 두번째 decoder layer의 attention score를 나타냅니다. 아무래도 decoder layer를 한번 더 거칠수록 attention score가 더욱 잘 나오는 것도 확인할 수 있었고 두 경우 모두 기대한대로 계단 모양(downward staircase)의 attention score를 보여주었습니다. 
 
 
 
-  ## Downstream Task (Bad User Detection System)
+## Downstream Task(Bad User Detection System)
 
    이와 같이 학습이 완료되었다면 Donwstream Task에 적용해볼 수 있을 것입니다. 이 중 NCSOFT에서 진행하는 '부정사용자탐지' 프로젝트에 모델을 적용시켜보려합니다. 부정사용자란 NCSOFT 게임에 존재하는 불법프로그램 사용자, 작업장 등 게임의 정책 및 경제에 악영향을 주는 유저들을 지칭합니다. 이는 게임 운영에 있어서 중요한 문제를 야기하는 요소들이며 이를 제재하고 탐지하기 위해서 다양한 방법들을 적용하고 있습니다. 물론, 부정사용자탐지는 앞선 'Snorkel을 이용한 Label 보정' 글에서도 알 수 있듯이 Weak Supervision 개념이나 여러 모델들의 앙상블, 다양한 데이터 전처리를 통해 진행하는 매우 복잡한 프로젝트이지만, 여기서는 임베딩 벡터를 추출한 결과가 어느 정도로 일반 사용자와 부정사용자를 구분해냈는지만을 확인해보고 이를 고도화한다면 프로젝트에 기여할 수 있을지 정도를 확인해보았습니다.  
   부정사용자도 다양한 행동을 하지만 특정 패턴들이 존재하는 경우가 많습니다. 여러 아이디에 있는 게임머니를 한 아이디로 몰아준다거나, 특정 Zone에서 특정 행동을 반복하는 것을 그 예로 들 수 있을 것 같습니다. 이러한 행동 패턴들은 일반사용자는 하지 않을 행동들이며 행동 로그 데이터에서 그 차이를 확인할 수 있습니다. 그렇기에 이런 행동 로그를 이용해 학습한 Transformer 모델은 부정사용자와 일반사용자간의 임베딩 벡터간 유사도가 적게 나타날 것입니다.  
@@ -189,7 +194,7 @@
 
   
 
-  ## 마치며
+## 마치며
 
   지금까지 Transformer를 이용한 대량의 로그 데이터 임베딩을 소개 해드렸습니다. 생각보다 학습에서 만족스러운 Attention Score나 학습 결과가 나왔지만 아직 고려해야할 점이 많이 있습니다.
 
@@ -201,8 +206,7 @@
 
   
 
-
-  ## 참고 자료
+## 참고자료
 
   - https://arxiv.org/abs/1706.03762
   - https://nlpinkorean.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
